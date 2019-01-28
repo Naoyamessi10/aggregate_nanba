@@ -1,0 +1,5 @@
+require 'categories.schema'
+require 'work_times.schema'
+require 'work_times_hours.schema'
+require 'work_times_minutes.schema'
+require 'work_users_lists.schema'

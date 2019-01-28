@@ -1,0 +1,59 @@
+<div class="error" *ngIf="access">
+  <div class="parent">業務時間を入力
+    <form class="form" [formGroup]="form">
+      <div>
+        <select formControlName="category_id" class="work_time" (change)="onChangeCategory($event)">
+          <option class="category-select" [value]="null">
+            カテゴリを選択
+          </option>
+          <option class="category-list" *ngFor="let category of categories" [value]="category.id">
+            {{ category.title }}
+          </option>
+        </select>
+
+        <select formControlName="month" class="month" (change)="onChangeMonth($event)">
+          <option class="month-select" [value]="null">
+            月を選択
+          </option>
+          <option class="month-list" *ngFor="let month of all_month" [value]="month">
+            {{ month }}月
+          </option>
+        </select>
+        <select formControlName="day" class="day" (change)="onChangeday($event)">
+          <option class="day-select" [value]="null">
+            日を選択
+          </option>
+          <option class="day-list" *ngFor="let day of all_day" [value]="day">
+            {{ day }}日
+          </option>
+          </select>
+
+        <select formControlName="hour" class="hour" (change)="onChangeHour($event)">
+          <option class="hour-select" [value]="null">
+            時間を選択
+          </option>
+          <option class="hour-list" *ngFor="let work_time_hour of work_times_hour" [value]="work_time_hour.hour">
+            {{ work_time_hour.hour }}時間
+          </option>
+        </select>
+        <select formControlName="minute" class="minute" (change)="onChangeMinute($event)">
+          <option class="hour-select" [value]="null">
+            分を選択
+          </option>
+          <option class="minute-list" *ngFor="let work_time_minute of work_times_minute" [value]="work_time_minute.minute">
+            {{ work_time_minute.minute }}分
+          </option>
+        </select><br>
+        <button type="button" class="button" (click)=onCreate()>保存</button><br><br>
+      </div>
+      <div class="error-popup" *ngIf="isError">
+        全て選択してください。
+      </div>
+    </form>
+    <button class="add-category" routerLink="/create">カテゴリを追加する</button>
+  </div>
+  <button class="button-show-graph" type="button" routerLink="/normal-graph">グラフを表示する</button>
+  <button class="category-button" type="button" routerLink="/category-graph">カテゴリごとに表示する</button><br><br>
+  <button class="google" type="button" (click)=google_calendar()>googleカレンダーの情報を取得する</button><br>
+  ※「個人作業」が含まれているものは別カテゴリとして保存します。
+</div>

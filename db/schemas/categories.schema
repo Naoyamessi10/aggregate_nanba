@@ -1,0 +1,6 @@
+create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.string "title", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.string  "user_id", null: false
+end

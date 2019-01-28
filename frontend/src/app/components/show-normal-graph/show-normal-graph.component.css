@@ -1,0 +1,18 @@
+.select {
+  margin-top: 15px;
+}
+
+.button {
+  margin-top: 15px;
+}
+
+.back {
+  margin-left: 5px;
+}
+
+.select-date {
+  display: inline-block;
+  vertical-align: middle;
+  width: 33%;
+  height: 400px;
+}
