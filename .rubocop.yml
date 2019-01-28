@@ -1,0 +1,58 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'vendor/**/*'
+
+# ABC Metricで算出される
+Metrics/AbcSize:
+  Max: 15
+
+# 循環的複雑度
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# 各行の最大文字数
+Metrics/LineLength:
+  # 100くらいであれば許容
+  Max: 100
+
+# 関数の行数(コメント含まず) デフォルト値の10だときついので15にしておく
+Metrics/MethodLength:
+  Max: 15
+
+Rails/InverseOf:
+  Enabled: false
+
+# and, or の代わりに &&, || を使うようにする
+Style/AndOr:
+  Enabled: true
+
+# 日本語でのコメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# 引数等の最後の要素がHashの場合にBraceをつける
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+# publicなクラスの先頭行のコメントを強制しない
+Style/Documentation:
+  Enabled: false
+
+# Ruby3系にスムーズに移行するためにtrueにしておく
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# %記法の配列の括弧の種類を強制する
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%w': ()
+    '%W': ()
+
+# 文字列を括るのにシングルクォートを使用する
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+# Hashの最後の要素の末尾にコンマをつける
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma

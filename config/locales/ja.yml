@@ -1,0 +1,10 @@
+ja:
+  record_not_found: "データが見つかりませんでした"
+  create_work_time_message: "業務時間を保存しました。"
+  create_user_id: "user_idを作成しました。"
+  create_category_message: "カテゴリを作成しました。"
+  seach_google_calendar: "googleカレンダーから取得しました！"
+  unknown_cookie: "クッキーが消去されました"
+  statement_invalid: "エラーが発生しました"
+  category_exist: "同じカテゴリが存在します。"
+  

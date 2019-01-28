@@ -1,0 +1,22 @@
+<div class="select">
+  <app-select-date
+    [category_flag]="category_flag"
+    (eventMonth)="onReceiveMonth($event)"
+    (eventDay)="onReceiveDay($event)">
+  </app-select-date>
+  <button class="button" type="button" (click)=onShowGraph()>表示</button>
+  <button class="back" type="button" routerLink="">戻る</button>
+  <div class="block">
+      <div class="select-date" *ngIf="change"></div>
+      <div class="select-date" *ngIf="change">
+        <app-show-graph
+          [data]="data">
+        </app-show-graph>
+      </div>
+      <div class="select-date" *ngIf="change">
+          <div class="hour-list" *ngFor="let category of names">
+              {{ category }}
+          </div>
+      </div>
+    </div>
+</div>
