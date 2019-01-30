@@ -44,6 +44,7 @@ module Api::V1
     def divide_calendar_datas(calendar_datas, category_id)
       work_times = []
 
+      WorkTime.where(user_id: params[:user_id]).delete_all
       calendar_datas.each do |calendar_data|
         # カレンダーのデータに終日と本文がない場合はスキップ
         next if !(calendar_data.start.date.nil?) || calendar_data.description.nil?
