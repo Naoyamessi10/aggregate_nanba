@@ -139,7 +139,9 @@ module Api::V1
 
     # 秒単位を時間単位に変換
     def calc_work_time(startTime, endTime)
-      startTime == 0 || endTime == 0 ? '' : (endTime - startTime)/60/60.round(1)
+      return '' if startTime == 0 || endTime == 0
+       time = (endTime - startTime)/60/60
+       time.round(1)
     end
 
     def work_time_params
