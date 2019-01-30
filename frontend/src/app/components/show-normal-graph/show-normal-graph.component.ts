@@ -21,6 +21,7 @@ export class ShowNormalGraphComponent implements OnInit {
   users;
   names;
   eventData;
+  dateT = ["日","月","火","水","木","金","土"];
 
   constructor(private showGraphService: ShowGraphService,
               private cookieService: CookieService,
@@ -52,6 +53,22 @@ export class ShowNormalGraphComponent implements OnInit {
       var day_params = { month: this.month , day: this.day, type_flag: false, user_id: this.cookieService.get('user_id')}
       return day_params
     }
+  }
+
+  onShowWeekGraph(){
+    var dt = new Date();
+    var kako = dt.getDay() - 1;
+    var dayday = dt.getDate() - kako;
+    dt.setDate(dayday);
+    var week_params = { year: dt.getFullYear(), month: dt.getMonth() + 1 , day: dt.getDate(), type_flag: false, week_type: true, user_id: this.cookieService.get('user_id')}
+    this.showGraphService.getWorkTimes(week_params).subscribe((response) => {
+      this.data = response;
+      if (this.data['status'] == 404){
+        this.toastr.error(this.data['message']);
+      } else {
+        this.change = true
+      }
+    })
   }
 
   onShowGraph(){
