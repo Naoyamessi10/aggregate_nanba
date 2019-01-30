@@ -1,6 +1,7 @@
 module Api::V1
   class WorkTimesController < ApplicationController
     SEARCH_WORD = '個人作業'.freeze
+    UNSEARCH_WORD = '対象外'.freeze
     FIRST_CATEGORY =  '会議'.freeze
 
     def index
@@ -48,6 +49,7 @@ module Api::V1
       calendar_datas.each do |calendar_data|
         # カレンダーのデータに終日と本文がない場合はスキップ
         next if !(calendar_data.start.date.nil?) || calendar_data.description.nil?
+        next if calendar_data.description.include?(UNSEARCH_WORD)
         # 全く同じデータは保存しない
         next if WorkTime.search_same_data(calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime), calendar_data.start.dateTime, params[:user_id]).present?
         # 「個人作業」が含まれていなかったら会議として保存
