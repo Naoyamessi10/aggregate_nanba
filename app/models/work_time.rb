@@ -3,6 +3,7 @@ class WorkTime < ApplicationRecord
   validates :time, presence: true
 
   scope :of_search, ->(user_id, date) { joins(:category).where("work_times.user_id = ? and work_times.created_at LIKE ?", "#{user_id}", "2019-#{date}%")}
+  scope :of_week, ->(year, month, day, user_id, today) { joins(:category).where("work_times.user_id = ? and work_times.created_at between ? and ?", "#{user_id}", "#{year}-#{month}-#{day}", "#{today}") }
   scope :search_same_data, ->(time, created_at, user_id) { where(time: time, created_at: created_at, user_id: user_id) }
   
   class << self
@@ -12,6 +13,14 @@ class WorkTime < ApplicationRecord
 
     def aggregate_by_category(user_id, category_id, date)
       of_search(user_id, date).where(category_id: category_id).group(:title).sum(:time)
+    end
+
+    def aggregate_by_title_week(year, month, day, user_id, today)
+      of_week(year, month, day, user_id, today).group(:title).sum(:time)
+    end
+
+    def aggregate_by_category_week(year, month, day, user_id, today, category_id)
+      of_week(year, month, day, user_id, today).where(category_id: category_id).group(:title).sum(:time)
     end
   end
 

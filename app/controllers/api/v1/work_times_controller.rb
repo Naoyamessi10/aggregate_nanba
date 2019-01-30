@@ -2,10 +2,10 @@ module Api::V1
   class WorkTimesController < ApplicationController
     SEARCH_WORD = '個人作業'.freeze
     UNSEARCH_WORD = '対象外'.freeze
-    FIRST_CATEGORY =  '会議'.freeze
+    FIRST_CATEGORY = '会議'.freeze
 
     def index
-      work_times = aggregate_time(params[:user_id])
+      work_times = params[:week_type].nil? ? aggregate_time(params[:user_id]) : calctime_week(params[:user_id])
       render json: work_times.blank? ? { message: I18n.t('record_not_found'), status: 404 } : work_times
     end
 
@@ -107,6 +107,16 @@ module Api::V1
     # カテゴリごとに月、日別で業務時間を計算
     def calctime_category(user_id)
       work_times = params[:day].nil? ? WorkTime.aggregate_by_category(user_id, params[:category_id], change_time(params[:month])) : WorkTime.aggregate_by_category(user_id, params[:category_id], "#{change_time(params[:month])}-#{change_time(params[:day])}")
+    end
+
+    def calctime_week(user_id)
+      d = Date.today
+      today = "#{d.year}-#{d.month}-#{d.day}"
+      work_times = params[:type_flag] == 'false' ? WorkTime.aggregate_by_title_week(params[:year], params[:month], params[:day], user_id, today) : calctime_category_week(params[:year], params[:month], params[:day], user_id, today, params[:category_id])
+    end
+
+    def calctime_category_week(year, month, day, user_id, today, category_id)
+      WorkTime.aggregate_by_category_week(year, month, day, user_id, today, category_id)
     end
 
     # 1桁のものに０をつける

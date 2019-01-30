@@ -67,6 +67,24 @@ export class ShowCategoryGraphComponent implements OnInit {
     this.form['day'] = eventData
   }
 
+  onShowWeekGraph(){
+    if (this.form['category_id'] !== undefined && this.form['category_id'] !== 'null'){
+      var dt = new Date();
+      var kako = dt.getDay() - 1;
+      var dayday = dt.getDate() - kako;
+      dt.setDate(dayday);
+      var week_params = { year: dt.getFullYear(), month: dt.getMonth() + 1 , day: dt.getDate(), type_flag: true, week_type: true, category_id: this.form['category_id'], user_id: this.cookieService.get('user_id')}
+      this.showGraphService.getWorkTimes(week_params).subscribe((response) => {
+        this.data = response;
+        if (this.data['status'] == 404){
+          this.toastr.error(this.data['message']);
+        } else {
+          this.change = true
+        }
+      })
+    }
+  }
+
   onShowGraph(){
     this.form['type_flag'] = 'category'
     if (this.form['category_id'] !== undefined && this.form['month'] !== undefined){
