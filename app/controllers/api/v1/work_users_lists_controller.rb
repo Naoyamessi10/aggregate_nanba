@@ -3,7 +3,7 @@ module Api::V1
 
     def index
       users = Hash.new { |h, k| h[k] = [] }
-      user_id = cookies[:user_id]
+      user_id = params[:user_id]
       work_times = params[:type_flag] == 'false' ? calctime(user_id) : calctime_category(user_id)
 
       #集計した時間とusersを紐付けて返す
