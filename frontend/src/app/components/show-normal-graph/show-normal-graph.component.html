@@ -4,9 +4,9 @@
     (eventMonth)="onReceiveMonth($event)"
     (eventDay)="onReceiveDay($event)">
   </app-select-date>
-  <button class="button" type="button" (click)=onShowWeekGraph()>この一週間を表示</button><br>
   <button class="button" type="button" (click)=onShowGraph()>表示</button>
-  <button class="back" type="button" routerLink="">戻る</button>
+  <button class="back" type="button" routerLink="">戻る</button><br>
+  <button class="button" type="button" (click)=onShowWeekGraph()>この一週間を表示</button>
   <div class="block">
       <div class="select-date" *ngIf="change"></div>
       <div class="select-date" *ngIf="change">
