@@ -5,7 +5,11 @@ module Api::V1
     FIRST_CATEGORY = '会議'.freeze
 
     def index
-      work_times = params[:week_type].nil? ? aggregate_time(params[:user_id]) : calctime_week(params[:user_id])
+      sum_times = params[:week_type].nil? ? aggregate_time(params[:user_id]) : calctime_week(params[:user_id])
+      work_times = {}
+      sum_times.each do |sum_time|
+        work_times[sum_time[0]] = (sum_time[1].to_f).round(1)
+      end
       render json: work_times.blank? ? { message: I18n.t('record_not_found'), status: 404 } : work_times
     end
 
@@ -46,19 +50,23 @@ module Api::V1
       work_times = []
 
       WorkTime.where(user_id: params[:user_id]).delete_all
+      #binding.pry
       calendar_datas.each do |calendar_data|
         # カレンダーのデータに終日と本文がない場合はスキップ
-        next if !(calendar_data.start.date.nil?) || calendar_data.description.nil?
-        next if calendar_data.description.include?(UNSEARCH_WORD)
-        # 全く同じデータは保存しない
-        next if WorkTime.search_same_data(calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime), calendar_data.start.dateTime, params[:user_id]).present?
-        # 「個人作業」が含まれていなかったら会議として保存
-        if (calendar_data.summary.include?(SEARCH_WORD) == false && calendar_data.description.include?(SEARCH_WORD) == false)
+        next if !(calendar_data.start.date.nil?)
+        if calendar_data.description.nil?
+          work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
+                                     category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
+                                     user_id: params[:user_id])
+          # 「個人作業」が含まれていなかったら会議として保存
+        elsif (calendar_data.description.include?(SEARCH_WORD) == false)
+          next if calendar_data.description.include?(UNSEARCH_WORD)
           work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
                                     category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
                                     user_id: params[:user_id])
         else
           # 個人作業」が含まれていた場合は新しいカテゴリとして保存し、業務時間を保存、user_listを保存
+          next if calendar_data.description.include?(UNSEARCH_WORD)
           work_time_self = create_category(calendar_data)
           next unless work_time_self.save! || !(calendar_data.attendees.blank?)
           # カレンダーから出席者を抽出
@@ -67,6 +75,8 @@ module Api::V1
       end
       work_times
     end
+
+
 
     def create_category(calendar_data)
       category = Category.new(title: calendar_data.summary, user_id: params[:user_id])
@@ -139,9 +149,7 @@ module Api::V1
 
     # 秒単位を時間単位に変換
     def calc_work_time(startTime, endTime)
-      return '' if startTime == 0 || endTime == 0
-       time = (endTime - startTime)/60/60
-       time.round(1)
+      startTime == 0 || endTime == 0 ? '' : ((endTime - startTime)/60/60).round(1)
     end
 
     def work_time_params
