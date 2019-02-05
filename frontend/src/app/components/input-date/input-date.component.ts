@@ -62,7 +62,7 @@ export class InputDateComponent implements OnInit {
     })
     /*cookieにuser_idがあればカテゴリをとってくる*/
     if(this.cookieService.get('user_id') !== ''){
-      this.inputdateService.getCategories(this.cookieService.get('user_id')).subscribe((response) => {
+      this.inputdateService.getCategories().subscribe((response) => {
         this.categories = response;
       })
     }
@@ -82,7 +82,7 @@ export class InputDateComponent implements OnInit {
             this.inputdateService.getGoogleCalendar(response['user_id']).subscribe((res) => {
               res = res;
             })
-            this.inputdateService.getCategories(response['user_id']).subscribe((response) => {
+            this.inputdateService.getCategories().subscribe((response) => {
               this.categories = response;
             })
           }

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
           post :import, :create_cookie
         end
       end
-      resources :categories, only: [:show, :create], format: 'json'
+      resources :categories, only: [:index], format: 'json'
       resources :show_graph, only: [:index], format: 'json'
       resources :work_times_hours, only: [:index], format: 'json'
       resources :work_times_minutes, only: [:index], format: 'json'

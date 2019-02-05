@@ -38,10 +38,7 @@ module Api::V1
       access_token = calendars_service.refresh_token(params[:user_id])
       calendar_datas = calendars_service.calendar_api_refresh_token(access_token)
       category_id = check_category_id
-
-      # テストの場合の処理
-      work_times = Rails.env == 'test' ? test(calendar_datas) : divide_calendar_datas(calendar_datas, category_id)
-
+      work_times = divide_calendar_datas(calendar_datas, category_id)
       WorkTime.import work_times
       render json: { message: I18n.t('seach_google_calendar'), status: 200 , cookie: params[:user_id]}
     rescue => e
@@ -61,34 +58,34 @@ module Api::V1
           work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
                                      category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
                                      user_id: params[:user_id])
-          # #カテゴリ名が含まれているか判定
+          # カテゴリ名が含まれているか判定
         elsif (calendar_data.description.include?(SEARCH_WORD1) == false && calendar_data.description.include?(SEARCH_WORD2) == false  && calendar_data.description.include?(SEARCH_WORD3) == false  && calendar_data.description.include?(SEARCH_WORD4) == false  && calendar_data.description.include?(SEARCH_WORD5) == false)
           next if calendar_data.description.include?(UNSEARCH_WORD)
           work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
                                     category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
                                     user_id: params[:user_id])
         else
-          # 個人作業」が含まれていた場合は新しいカテゴリとして保存し、業務時間を保存、user_listを保存
+          # カテゴリ名が含まれていた場合の処理
           next if calendar_data.description.include?(UNSEARCH_WORD)
-          work_time_self = create_category(calendar_data)
-          next unless work_time_self.save! || !(calendar_data.attendees.blank?)
+          create_category_id = search_category_id(calendar_data.description)
+          work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
+                                    category_id: create_category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
+                                    user_id: params[:user_id])
         end
       end
       work_times
     end
 
-
-
-    def create_category(calendar_data)
-      category = Category.new(title: calendar_data.summary, user_id: params[:user_id])
-      category.save! if Category.where(title: calendar_data.summary, user_id: params[:user_id]).blank?
-      @new_category_id = Category.search_id(calendar_data.summary, params[:user_id])[0]
-      work_time_self = WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
-      category_id: @new_category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,user_id: params[:user_id])
+    def search_category_id(content)
+      return 2 if content.include?(SEARCH_WORD1)
+      return 3 if content.include?(SEARCH_WORD2)
+      return 4 if content.include?(SEARCH_WORD3)
+      return 5 if content.include?(SEARCH_WORD4)
+      return 6 if content.include?(SEARCH_WORD5)
     end
 
     def check_category_id
-      Category.search_id(FIRST_CATEGORY, params[:user_id])[0]
+      Category.search_id(1, FIRST_CATEGORY)[0]
     end
 
     # 業務時間を集計し、返す
@@ -142,16 +139,6 @@ module Api::V1
 
     def work_time_params
       params.require(:work_time).permit(:category_id)
-    end
-
-    def test(calendar_datas)
-      work_times = []
-
-      calendar_datas.each do |calendar_data|
-        work_times << WorkTime.new(time: calc_work_time(calendar_data[:start][:dateTime], calendar_data[:end][:dateTime]),
-                                  category_id: 34, created_at: calendar_data[:start][:dateTime], updated_at: calendar_data[:end][:dateTime],
-                                  user_id: 1111)
-      end
     end
 
   end
