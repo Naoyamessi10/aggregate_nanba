@@ -1,7 +1,11 @@
 module Api::V1
   class WorkTimesController < ApplicationController
-    SEARCH_WORD = '個人作業'.freeze
-    UNSEARCH_WORD = '対象外'.freeze
+    SEARCH_WORD1 = '#作業能動'.freeze
+    SEARCH_WORD2 = '#作業受動'.freeze
+    SEARCH_WORD3 = '#休憩'.freeze
+    SEARCH_WORD4 = '#外出'.freeze
+    SEARCH_WORD5 = '#その他'.freeze
+    UNSEARCH_WORD = '#対象外'.freeze
     FIRST_CATEGORY = '会議'.freeze
 
     def index
@@ -59,7 +63,7 @@ module Api::V1
                                      category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
                                      user_id: params[:user_id])
           # 「個人作業」が含まれていなかったら会議として保存
-        elsif (calendar_data.description.include?(SEARCH_WORD) == false)
+        elsif (calendar_data.description.include?(SEARCH_WORD1) == false && calendar_data.description.include?(SEARCH_WORD2) == false  && calendar_data.description.include?(SEARCH_WORD3) == false  && calendar_data.description.include?(SEARCH_WORD4) == false  && calendar_data.description.include?(SEARCH_WORD5) == false)
           next if calendar_data.description.include?(UNSEARCH_WORD)
           work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
                                     category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
