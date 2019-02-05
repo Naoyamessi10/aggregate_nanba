@@ -54,7 +54,6 @@ module Api::V1
       work_times = []
 
       WorkTime.where(user_id: params[:user_id]).delete_all
-      #binding.pry
       calendar_datas.each do |calendar_data|
         # カレンダーのデータに終日と本文がない場合はスキップ
         next if !(calendar_data.start.date.nil?)
@@ -62,7 +61,7 @@ module Api::V1
           work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
                                      category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
                                      user_id: params[:user_id])
-          # 「個人作業」が含まれていなかったら会議として保存
+          # #カテゴリ名が含まれているか判定
         elsif (calendar_data.description.include?(SEARCH_WORD1) == false && calendar_data.description.include?(SEARCH_WORD2) == false  && calendar_data.description.include?(SEARCH_WORD3) == false  && calendar_data.description.include?(SEARCH_WORD4) == false  && calendar_data.description.include?(SEARCH_WORD5) == false)
           next if calendar_data.description.include?(UNSEARCH_WORD)
           work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
@@ -73,8 +72,6 @@ module Api::V1
           next if calendar_data.description.include?(UNSEARCH_WORD)
           work_time_self = create_category(calendar_data)
           next unless work_time_self.save! || !(calendar_data.attendees.blank?)
-          # カレンダーから出席者を抽出
-          import_attendees(calendar_data)
         end
       end
       work_times
@@ -88,19 +85,6 @@ module Api::V1
       @new_category_id = Category.search_id(calendar_data.summary, params[:user_id])[0]
       work_time_self = WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
       category_id: @new_category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,user_id: params[:user_id])
-    end
-
-    def import_attendees(calendar_data)
-      users_lists = []
-
-      calendar_data.attendees.each do |attendee|
-        # 自分以外を保存、/@/ =~ attendee['email'] -> @を探して@以前を抽出
-        next if (attendee['email'] == calendar_data.creator['email']) == true || (attendee['responseStatus'] == 'declined') == true
-        /@/ =~ attendee['email']
-        work_time_id = WorkTime.where(category_id: @new_category_id, created_at: calendar_data.start.dateTime, user_id: params[:user_id])[0][:id]
-        users_lists << WorkUsersList.new(user_name: $`,work_time_id: work_time_id, user_id: params[:user_id])
-      end
-      WorkUsersList.import users_lists
     end
 
     def check_category_id
