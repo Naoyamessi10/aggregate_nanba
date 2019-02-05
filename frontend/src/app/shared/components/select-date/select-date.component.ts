@@ -25,7 +25,7 @@ export class SelectDateComponent implements OnInit {
   @Output() eventDay = new EventEmitter<String>();
 
   constructor(private showGraphService: ShowGraphService,
-              private cookieService: CookieService) { 
+              private cookieService: CookieService) {
     this.form = new FormGroup({
       category: new FormControl(),
       month: new FormControl(),
@@ -35,7 +35,7 @@ export class SelectDateComponent implements OnInit {
 
   ngOnInit() {
     if (this.category_flag){
-      this.showGraphService.getCategories(this.cookieService.get('user_id')).subscribe((response) => {
+      this.showGraphService.getCategories().subscribe((response) => {
         this.categories = response;
       })
     }
