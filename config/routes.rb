@@ -11,7 +11,6 @@ Rails.application.routes.draw do
       resources :show_graph, only: [:index], format: 'json'
       resources :work_times_hours, only: [:index], format: 'json'
       resources :work_times_minutes, only: [:index], format: 'json'
-      resources :work_users_lists, only: [:index], format: 'json'
     end
   end 
 end

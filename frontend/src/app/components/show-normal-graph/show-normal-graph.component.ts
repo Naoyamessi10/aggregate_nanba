@@ -75,16 +75,6 @@ export class ShowNormalGraphComponent implements OnInit {
     if (this.month !== undefined){
       this.showGraphService.getWorkTimes(this.onCreateParams()).subscribe((response) => {
         this.data = response;
-        this.showGraphService.getUsrsLists(this.onCreateParams()).subscribe((response)=> {
-          this.users = response;
-          
-          var users_lists = [];
-          for (var item in this.users){
-            users_lists.push(item+ ' : '+ this.users[item])
-          }
-          this.names = users_lists
-
-        })
         if (this.data['status'] == 404){
           this.toastr.error(this.data['message']);
         } else {
