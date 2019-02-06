@@ -39,7 +39,8 @@ export class ShowCategoryGraphComponent implements OnInit {
    }
 
   ngOnInit() {
-    if (this.cookieService.get('user_id') == ''){
+    if (this.cookieService.get('user_id') == '' || this.cookieService.get('user_id') == 'undefined'){
+      this.cookieService.deleteAll();
       window.location.href = this.googleUrl
     }
     this.form['user_id'] = this.cookieService.get('user_id')

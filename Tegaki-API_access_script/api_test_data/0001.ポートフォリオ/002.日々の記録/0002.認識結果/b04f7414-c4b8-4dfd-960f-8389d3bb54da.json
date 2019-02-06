@@ -1,0 +1,1435 @@
+{
+    "requestId": "b04f7414-c4b8-4dfd-960f-8389d3bb54da",
+    "userId": "eb804d58-d3f0-4e5b-9f72-45f5f01e5b28",
+    "version": "2",
+    "state": "COMPLETED",
+    "created": "2018-12-19T05:18:32.665Z",
+    "modified": "2018-12-19T05:19:01.267Z",
+    "requestType": "form",
+    "templateId": "",
+    "results": [
+        {
+            "singleLine": {
+                "text": "2018",
+                "confidence": 0.934,
+                "characters": [
+                    {
+                        "confidence": 0.996,
+                        "character": "2"
+                    },
+                    {
+                        "character": "0",
+                        "confidence": 0.998
+                    },
+                    {
+                        "character": "1",
+                        "confidence": 0.999
+                    },
+                    {
+                        "character": "8",
+                        "confidence": 0.999
+                    }
+                ]
+            },
+            "fieldId": "1bed939f-42c8-4297-98dc-33ef83be3051",
+            "name": "年",
+            "rectangle": {
+                "width": 229,
+                "y": 612,
+                "height": 70,
+                "x": 1193
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.86,
+                "characters": [
+                    {
+                        "confidence": 0.871,
+                        "character": "7"
+                    }
+                ],
+                "text": "7"
+            },
+            "fieldId": "9217f0bb-0f72-4327-83e8-a7ba3c86105f",
+            "name": "月",
+            "rectangle": {
+                "y": 612,
+                "height": 70,
+                "x": 1519,
+                "width": 232
+            }
+        },
+        {
+            "name": "日",
+            "singleLine": {
+                "confidence": 0.935,
+                "characters": [
+                    {
+                        "confidence": 0.999,
+                        "character": "2"
+                    },
+                    {
+                        "character": "2",
+                        "confidence": 0.999
+                    }
+                ],
+                "text": "22"
+            },
+            "fieldId": "77cf91bf-82c4-4d78-a553-b2cf5fd914a5",
+            "rectangle": {
+                "y": 612,
+                "height": 70,
+                "x": 1845,
+                "width": 191
+            }
+        },
+        {
+            "name": "学年",
+            "singleLine": {
+                "confidence": 0.926,
+                "characters": [
+                    {
+                        "confidence": 0.943,
+                        "character": "1"
+                    }
+                ],
+                "text": "1"
+            },
+            "fieldId": "b76b26da-de43-42aa-8fd1-21eeed699899",
+            "rectangle": {
+                "width": 231,
+                "y": 766,
+                "height": 71,
+                "x": 367
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.938,
+                "characters": [
+                    {
+                        "character": "B",
+                        "confidence": 0.998
+                    }
+                ],
+                "text": "B"
+            },
+            "fieldId": "1da101fd-d5b2-4112-8840-4dee7cd6d115",
+            "name": "組",
+            "rectangle": {
+                "y": 766,
+                "height": 71,
+                "x": 694,
+                "width": 230
+            }
+        },
+        {
+            "singleLine": {
+                "text": "15",
+                "confidence": 0.931,
+                "characters": [
+                    {
+                        "confidence": 0.999,
+                        "character": "1"
+                    },
+                    {
+                        "character": "5",
+                        "confidence": 0.999
+                    }
+                ]
+            },
+            "fieldId": "77a66c99-d56a-499a-a27d-42b9f168ab50",
+            "name": "出席番号",
+            "rectangle": {
+                "width": 187,
+                "y": 766,
+                "height": 71,
+                "x": 1021
+            }
+        },
+        {
+            "fieldId": "1d555d99-8129-40cf-b1a3-7a2c7c59eada",
+            "name": "氏名",
+            "singleLine": {
+                "text": "系内戸志舞",
+                "confidence": 0.066,
+                "characters": [
+                    {
+                        "character": "系",
+                        "confidence": 0.072
+                    },
+                    {
+                        "character": "内",
+                        "confidence": 0.97
+                    },
+                    {
+                        "character": "戸",
+                        "confidence": 0.999
+                    },
+                    {
+                        "confidence": 0.97,
+                        "character": "志"
+                    },
+                    {
+                        "character": "舞",
+                        "confidence": 0.998
+                    }
+                ]
+            },
+            "rectangle": {
+                "width": 676,
+                "y": 766,
+                "height": 71,
+                "x": 1465
+            }
+        },
+        {
+            "multiLine": {
+                "lines": [
+                    {
+                        "rectangle": {
+                            "y": 51,
+                            "height": 63,
+                            "x": 32,
+                            "width": 463
+                        },
+                        "confidence": 0.176,
+                        "characters": [
+                            {
+                                "character": "う",
+                                "confidence": 0.992
+                            },
+                            {
+                                "character": "ま",
+                                "confidence": 0.994
+                            },
+                            {
+                                "character": "く",
+                                "confidence": 0.977
+                            },
+                            {
+                                "confidence": 0.718,
+                                "character": "収"
+                            },
+                            {
+                                "confidence": 0.586,
+                                "character": "納"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "す"
+                            },
+                            {
+                                "character": "る",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "コ",
+                                "confidence": 0.995
+                            },
+                            {
+                                "character": "ツ",
+                                "confidence": 0.878
+                            }
+                        ],
+                        "text": "うまく収納するコツ"
+                    }
+                ]
+            },
+            "fieldId": "b00c4294-0723-4fdb-b4ee-05ced1a970f2",
+            "name": "タイトル",
+            "rectangle": {
+                "y": 921,
+                "height": 132,
+                "x": 645,
+                "width": 1495
+            }
+        },
+        {
+            "multiLine": {
+                "lines": [
+                    {
+                        "rectangle": {
+                            "y": 19,
+                            "height": 75,
+                            "x": 30,
+                            "width": 1657
+                        },
+                        "confidence": 0,
+                        "characters": [
+                            {
+                                "confidence": 0.306,
+                                "character": "u"
+                            },
+                            {
+                                "character": "糸",
+                                "confidence": 0.54
+                            },
+                            {
+                                "character": "内",
+                                "confidence": 0.811
+                            },
+                            {
+                                "character": "相",
+                                "confidence": 0.17
+                            },
+                            {
+                                "character": "目",
+                                "confidence": 0.215
+                            },
+                            {
+                                "character": "を",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.231,
+                                "character": "細"
+                            },
+                            {
+                                "confidence": 0.693,
+                                "character": "目"
+                            },
+                            {
+                                "confidence": 0.445,
+                                "character": "み"
+                            },
+                            {
+                                "character": "立",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.923,
+                                "character": "て"
+                            },
+                            {
+                                "character": "て",
+                                "confidence": 0.948
+                            },
+                            {
+                                "character": "、",
+                                "confidence": 0.998
+                            },
+                            {
+                                "confidence": 0.968,
+                                "character": "ウ"
+                            },
+                            {
+                                "character": "ォ",
+                                "confidence": 0.971
+                            },
+                            {
+                                "confidence": 0.845,
+                                "character": "ー"
+                            },
+                            {
+                                "character": "ク",
+                                "confidence": 0.95
+                            },
+                            {
+                                "character": "イ",
+                                "confidence": 0.98
+                            },
+                            {
+                                "confidence": 0.997,
+                                "character": "ン"
+                            },
+                            {
+                                "confidence": 0.984,
+                                "character": "ク"
+                            },
+                            {
+                                "character": "ロ",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.907,
+                                "character": "ー"
+                            },
+                            {
+                                "confidence": 0.923,
+                                "character": "ビ"
+                            },
+                            {
+                                "character": "ッ",
+                                "confidence": 0.997
+                            },
+                            {
+                                "character": "ト",
+                                "confidence": 0.998
+                            },
+                            {
+                                "character": "の",
+                                "confidence": 0.997
+                            },
+                            {
+                                "character": "整",
+                                "confidence": 0.95
+                            },
+                            {
+                                "confidence": 0.997,
+                                "character": "理"
+                            },
+                            {
+                                "character": "を",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "し",
+                                "confidence": 0.995
+                            },
+                            {
+                                "confidence": 0.996,
+                                "character": "ま"
+                            },
+                            {
+                                "character": "し",
+                                "confidence": 0.997
+                            },
+                            {
+                                "character": "た",
+                                "confidence": 0.993
+                            },
+                            {
+                                "confidence": 0.992,
+                                "character": "。"
+                            },
+                            {
+                                "confidence": 0.194,
+                                "character": "条"
+                            },
+                            {
+                                "character": "み",
+                                "confidence": 0.961
+                            },
+                            {
+                                "character": "立",
+                                "confidence": 0.998
+                            },
+                            {
+                                "confidence": 0.631,
+                                "character": "て"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "る"
+                            }
+                        ],
+                        "text": "u糸内相目を細目み立てて、ウォークインクロービットの整理をしました。条み立てる"
+                    },
+                    {
+                        "rectangle": {
+                            "y": 116,
+                            "height": 91,
+                            "x": 29,
+                            "width": 1583
+                        },
+                        "confidence": 0.002,
+                        "characters": [
+                            {
+                                "confidence": 0.606,
+                                "character": "の"
+                            },
+                            {
+                                "confidence": 0.951,
+                                "character": "は"
+                            },
+                            {
+                                "character": "暑",
+                                "confidence": 0.514
+                            },
+                            {
+                                "confidence": 0.994,
+                                "character": "く"
+                            },
+                            {
+                                "confidence": 0.925,
+                                "character": "て"
+                            },
+                            {
+                                "confidence": 0.963,
+                                "character": "大"
+                            },
+                            {
+                                "confidence": 0.998,
+                                "character": "変"
+                            },
+                            {
+                                "confidence": 0.953,
+                                "character": "で"
+                            },
+                            {
+                                "confidence": 0.969,
+                                "character": "し"
+                            },
+                            {
+                                "confidence": 0.998,
+                                "character": "た"
+                            },
+                            {
+                                "character": "が",
+                                "confidence": 0.997
+                            },
+                            {
+                                "confidence": 0.998,
+                                "character": "、"
+                            },
+                            {
+                                "character": "き",
+                                "confidence": 0.969
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "れ"
+                            },
+                            {
+                                "confidence": 0.996,
+                                "character": "い"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "に"
+                            },
+                            {
+                                "confidence": 0.707,
+                                "character": "整"
+                            },
+                            {
+                                "confidence": 0.995,
+                                "character": "理"
+                            },
+                            {
+                                "character": "で",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.998,
+                                "character": "き"
+                            },
+                            {
+                                "character": "て",
+                                "confidence": 0.969
+                            },
+                            {
+                                "character": "達",
+                                "confidence": 0.641
+                            },
+                            {
+                                "confidence": 0.031,
+                                "character": "成"
+                            },
+                            {
+                                "character": "感",
+                                "confidence": 0.836
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "が"
+                            },
+                            {
+                                "character": "あ",
+                                "confidence": 0.992
+                            },
+                            {
+                                "confidence": 0.977,
+                                "character": "り"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "ま"
+                            },
+                            {
+                                "confidence": 0.988,
+                                "character": "し"
+                            },
+                            {
+                                "character": "た",
+                                "confidence": 0.983
+                            },
+                            {
+                                "confidence": 0.997,
+                                "character": "。"
+                            }
+                        ],
+                        "text": "のは暑くて大変でしたが、きれいに整理できて達成感がありました。"
+                    }
+                ]
+            },
+            "fieldId": "8e6c90e1-78a3-42a5-bfa2-bd9db2e161ad",
+            "name": "事実感想",
+            "rectangle": {
+                "y": 1141,
+                "height": 370,
+                "x": 367,
+                "width": 1773
+            }
+        },
+        {
+            "multiLine": {
+                "lines": [
+                    {
+                        "rectangle": {
+                            "y": 20,
+                            "height": 95,
+                            "x": 48,
+                            "width": 596
+                        },
+                        "confidence": 0.04,
+                        "characters": [
+                            {
+                                "character": "は",
+                                "confidence": 0.76
+                            },
+                            {
+                                "character": "じ",
+                                "confidence": 0.63
+                            },
+                            {
+                                "character": "め",
+                                "confidence": 0.905
+                            },
+                            {
+                                "confidence": 0.998,
+                                "character": "が"
+                            },
+                            {
+                                "confidence": 0.938,
+                                "character": "重"
+                            },
+                            {
+                                "character": "要",
+                                "confidence": 0.993
+                            }
+                        ],
+                        "text": "はじめが重要"
+                    },
+                    {
+                        "rectangle": {
+                            "width": 1593,
+                            "y": 126,
+                            "height": 79,
+                            "x": 63
+                        },
+                        "text": "もそも何Tをどれだ、収納内したいかを最初に考えて、い点内本を選ぶこと",
+                        "confidence": 0,
+                        "characters": [
+                            {
+                                "confidence": 0.948,
+                                "character": "も"
+                            },
+                            {
+                                "confidence": 0.757,
+                                "character": "そ"
+                            },
+                            {
+                                "confidence": 0.979,
+                                "character": "も"
+                            },
+                            {
+                                "character": "何",
+                                "confidence": 0.98
+                            },
+                            {
+                                "character": "T",
+                                "confidence": 0.537
+                            },
+                            {
+                                "character": "を",
+                                "confidence": 0.998
+                            },
+                            {
+                                "confidence": 0.981,
+                                "character": "ど"
+                            },
+                            {
+                                "character": "れ",
+                                "confidence": 0.998
+                            },
+                            {
+                                "character": "だ",
+                                "confidence": 0.998
+                            },
+                            {
+                                "character": "、",
+                                "confidence": 0.581
+                            },
+                            {
+                                "confidence": 0.324,
+                                "character": "収"
+                            },
+                            {
+                                "character": "納",
+                                "confidence": 0.39
+                            },
+                            {
+                                "character": "内",
+                                "confidence": 0.977
+                            },
+                            {
+                                "character": "し",
+                                "confidence": 0.939
+                            },
+                            {
+                                "confidence": 0.996,
+                                "character": "た"
+                            },
+                            {
+                                "character": "い",
+                                "confidence": 0.992
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "か"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "を"
+                            },
+                            {
+                                "confidence": 0.982,
+                                "character": "最"
+                            },
+                            {
+                                "character": "初",
+                                "confidence": 0.433
+                            },
+                            {
+                                "confidence": 0.997,
+                                "character": "に"
+                            },
+                            {
+                                "confidence": 0.979,
+                                "character": "考"
+                            },
+                            {
+                                "character": "え",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.978,
+                                "character": "て"
+                            },
+                            {
+                                "character": "、",
+                                "confidence": 0.963
+                            },
+                            {
+                                "character": "い",
+                                "confidence": 0.699
+                            },
+                            {
+                                "character": "点",
+                                "confidence": 0.155
+                            },
+                            {
+                                "character": "内",
+                                "confidence": 0.921
+                            },
+                            {
+                                "confidence": 0.561,
+                                "character": "本"
+                            },
+                            {
+                                "character": "を",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "選",
+                                "confidence": 0.771
+                            },
+                            {
+                                "confidence": 0.281,
+                                "character": "ぶ"
+                            },
+                            {
+                                "confidence": 0.831,
+                                "character": "こ"
+                            },
+                            {
+                                "confidence": 0.974,
+                                "character": "と"
+                            }
+                        ]
+                    },
+                    {
+                        "rectangle": {
+                            "x": 0,
+                            "width": 1745,
+                            "y": 226,
+                            "height": 74
+                        },
+                        "confidence": 0,
+                        "characters": [
+                            {
+                                "confidence": 0.949,
+                                "character": "が"
+                            },
+                            {
+                                "confidence": 0.947,
+                                "character": "大"
+                            },
+                            {
+                                "confidence": 0.64,
+                                "character": "切"
+                            },
+                            {
+                                "confidence": 0.772,
+                                "character": "カ"
+                            },
+                            {
+                                "confidence": 0.857,
+                                "character": "。"
+                            },
+                            {
+                                "character": "組",
+                                "confidence": 0.686
+                            },
+                            {
+                                "character": "が",
+                                "confidence": 0.947
+                            },
+                            {
+                                "character": "立",
+                                "confidence": 0.998
+                            },
+                            {
+                                "confidence": 0.876,
+                                "character": "て"
+                            },
+                            {
+                                "character": "る",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.658,
+                                "character": "寺"
+                            },
+                            {
+                                "character": "も",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.992,
+                                "character": "、"
+                            },
+                            {
+                                "confidence": 0.959,
+                                "character": "最"
+                            },
+                            {
+                                "character": "初",
+                                "confidence": 0.939
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "に"
+                            },
+                            {
+                                "confidence": 0.789,
+                                "character": "至"
+                            },
+                            {
+                                "confidence": 0.978,
+                                "character": "み"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "が"
+                            },
+                            {
+                                "character": "出",
+                                "confidence": 0.996
+                            },
+                            {
+                                "character": "な",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.93,
+                                "character": "い"
+                            },
+                            {
+                                "character": "よ",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "う",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "に",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "調",
+                                "confidence": 0.874
+                            },
+                            {
+                                "confidence": 0.746,
+                                "character": "整"
+                            },
+                            {
+                                "character": "す",
+                                "confidence": 0.998
+                            },
+                            {
+                                "character": "る",
+                                "confidence": 0.998
+                            },
+                            {
+                                "character": "こ",
+                                "confidence": 0.76
+                            },
+                            {
+                                "character": "と",
+                                "confidence": 0.685
+                            },
+                            {
+                                "character": "が",
+                                "confidence": 0.793
+                            },
+                            {
+                                "confidence": 0.237,
+                                "character": "た"
+                            },
+                            {
+                                "confidence": 0.693,
+                                "character": "な"
+                            },
+                            {
+                                "character": "。",
+                                "confidence": 0.947
+                            }
+                        ],
+                        "text": "が大切カ。組が立てる寺も、最初に至みが出ないように調整することがたな。"
+                    }
+                ]
+            },
+            "fieldId": "001d0954-58ec-4228-826f-22d2d801174a",
+            "name": "気づき学び",
+            "rectangle": {
+                "width": 1773,
+                "y": 1602,
+                "height": 371,
+                "x": 367
+            }
+        },
+        {
+            "multiLine": {
+                "lines": [
+                    {
+                        "rectangle": {
+                            "width": 1755,
+                            "y": 14,
+                            "height": 62,
+                            "x": 0
+                        },
+                        "confidence": 0,
+                        "characters": [
+                            {
+                                "character": "洗",
+                                "confidence": 0.957
+                            },
+                            {
+                                "character": "濯",
+                                "confidence": 0.355
+                            },
+                            {
+                                "confidence": 0.641,
+                                "character": "機"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "の"
+                            },
+                            {
+                                "character": "上",
+                                "confidence": 0.997
+                            },
+                            {
+                                "character": "の",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "空",
+                                "confidence": 0.776
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "に"
+                            },
+                            {
+                                "confidence": 0.978,
+                                "character": "、"
+                            },
+                            {
+                                "confidence": 0.997,
+                                "character": "タ"
+                            },
+                            {
+                                "character": "オ",
+                                "confidence": 0.797
+                            },
+                            {
+                                "confidence": 0.9,
+                                "character": "ル"
+                            },
+                            {
+                                "character": "や",
+                                "confidence": 0.981
+                            },
+                            {
+                                "confidence": 0.522,
+                                "character": "洗"
+                            },
+                            {
+                                "confidence": 0.716,
+                                "character": "音"
+                            },
+                            {
+                                "character": "り",
+                                "confidence": 0.557
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "を"
+                            },
+                            {
+                                "character": "u",
+                                "confidence": 0.695
+                            },
+                            {
+                                "confidence": 0.928,
+                                "character": "納"
+                            },
+                            {
+                                "character": "内",
+                                "confidence": 0.926
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "で"
+                            },
+                            {
+                                "character": "き",
+                                "confidence": 0.994
+                            },
+                            {
+                                "character": "る",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.996,
+                                "character": "よ"
+                            },
+                            {
+                                "character": "う",
+                                "confidence": 0.995
+                            },
+                            {
+                                "confidence": 0.993,
+                                "character": "に"
+                            },
+                            {
+                                "character": "、",
+                                "confidence": 0.998
+                            },
+                            {
+                                "confidence": 0.1,
+                                "character": "桝"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "を"
+                            },
+                            {
+                                "confidence": 0.981,
+                                "character": "買"
+                            },
+                            {
+                                "character": "い",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.982,
+                                "character": "た"
+                            },
+                            {
+                                "character": "い",
+                                "confidence": 0.999
+                            }
+                        ],
+                        "text": "洗濯機の上の空に、タオルや洗音りをu納内できるように、桝を買いたい"
+                    },
+                    {
+                        "rectangle": {
+                            "y": 103,
+                            "height": 76,
+                            "x": 20,
+                            "width": 1600
+                        },
+                        "text": "です。下に置くと脱衣所が狭くなるし、ホコりっぱくなるからです。",
+                        "confidence": 0.023,
+                        "characters": [
+                            {
+                                "confidence": 0.999,
+                                "character": "で"
+                            },
+                            {
+                                "character": "す",
+                                "confidence": 0.97
+                            },
+                            {
+                                "character": "。",
+                                "confidence": 0.998
+                            },
+                            {
+                                "character": "下",
+                                "confidence": 0.774
+                            },
+                            {
+                                "character": "に",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "置",
+                                "confidence": 0.955
+                            },
+                            {
+                                "character": "く",
+                                "confidence": 0.984
+                            },
+                            {
+                                "confidence": 0.98,
+                                "character": "と"
+                            },
+                            {
+                                "confidence": 0.858,
+                                "character": "脱"
+                            },
+                            {
+                                "confidence": 0.473,
+                                "character": "衣"
+                            },
+                            {
+                                "character": "所",
+                                "confidence": 0.933
+                            },
+                            {
+                                "character": "が",
+                                "confidence": 0.999
+                            },
+                            {
+                                "character": "狭",
+                                "confidence": 0.977
+                            },
+                            {
+                                "character": "く",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "な"
+                            },
+                            {
+                                "character": "る",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.976,
+                                "character": "し"
+                            },
+                            {
+                                "confidence": 0.969,
+                                "character": "、"
+                            },
+                            {
+                                "confidence": 0.649,
+                                "character": "ホ"
+                            },
+                            {
+                                "confidence": 0.871,
+                                "character": "コ"
+                            },
+                            {
+                                "character": "り",
+                                "confidence": 0.975
+                            },
+                            {
+                                "confidence": 0.867,
+                                "character": "っ"
+                            },
+                            {
+                                "confidence": 0.843,
+                                "character": "ぱ"
+                            },
+                            {
+                                "character": "く",
+                                "confidence": 0.997
+                            },
+                            {
+                                "character": "な",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.998,
+                                "character": "る"
+                            },
+                            {
+                                "confidence": 0.998,
+                                "character": "か"
+                            },
+                            {
+                                "character": "ら",
+                                "confidence": 0.999
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "で"
+                            },
+                            {
+                                "confidence": 0.999,
+                                "character": "す"
+                            },
+                            {
+                                "character": "。",
+                                "confidence": 0.999
+                            }
+                        ]
+                    }
+                ]
+            },
+            "fieldId": "26227f3b-05dc-41fc-a5f0-dd95ac45844c",
+            "name": "明日すること",
+            "rectangle": {
+                "width": 1774,
+                "y": 2060,
+                "height": 446,
+                "x": 367
+            }
+        },
+        {
+            "name": "進路キャリア",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.967,
+                "boxes": [
+                    {
+                        "name": "checkbox #0",
+                        "fieldId": "f4cfe202-1017-43e7-9b87-90df470aa7cb",
+                        "rectangle": {
+                            "y": 2593,
+                            "height": 139,
+                            "x": 632,
+                            "width": 89
+                        },
+                        "confidence": 0.967,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "学習",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.918,
+                "boxes": [
+                    {
+                        "name": "checkbox #1",
+                        "fieldId": "42346238-7999-46f4-ad4a-0dad51732490",
+                        "rectangle": {
+                            "width": 92,
+                            "y": 2590,
+                            "height": 144,
+                            "x": 984
+                        },
+                        "confidence": 0.918,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "探求活動",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.976,
+                "boxes": [
+                    {
+                        "name": "checkbox #2",
+                        "fieldId": "7ad328aa-9b65-4034-bfa0-fb3bcd823f4c",
+                        "rectangle": {
+                            "y": 2592,
+                            "height": 145,
+                            "x": 1342,
+                            "width": 84
+                        },
+                        "result": false,
+                        "confidence": 0.976
+                    }
+                ]
+            }
+        },
+        {
+            "name": "生徒会委員会",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.975,
+                "boxes": [
+                    {
+                        "name": "checkbox #3",
+                        "fieldId": "de700301-2783-4ee4-a2a0-6e65e74ccc2c",
+                        "rectangle": {
+                            "y": 2588,
+                            "height": 147,
+                            "x": 1700,
+                            "width": 84
+                        },
+                        "result": false,
+                        "confidence": 0.975
+                    }
+                ]
+            }
+        },
+        {
+            "name": "学校行事",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.98,
+                "boxes": [
+                    {
+                        "name": "checkbox #4",
+                        "fieldId": "3a2340ff-68e5-46a2-94e1-a11aa81868c0",
+                        "rectangle": {
+                            "x": 2057,
+                            "width": 82,
+                            "y": 2590,
+                            "height": 149
+                        },
+                        "confidence": 0.98,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "部活動",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.977,
+                "boxes": [
+                    {
+                        "name": "checkbox #5",
+                        "fieldId": "f5adaef9-921a-4376-8e05-f771d4c8d62d",
+                        "rectangle": {
+                            "width": 85,
+                            "y": 2745,
+                            "height": 137,
+                            "x": 634
+                        },
+                        "result": false,
+                        "confidence": 0.977
+                    }
+                ]
+            }
+        },
+        {
+            "name": "学校以外の活動",
+            "checkboxGroup": {
+                "checkbox": "checkbox #6",
+                "confidence": 0.999,
+                "boxes": [
+                    {
+                        "name": "checkbox #6",
+                        "fieldId": "6c82de82-ddf8-49c1-91ab-c5fe332559a0",
+                        "rectangle": {
+                            "y": 2745,
+                            "height": 139,
+                            "x": 989,
+                            "width": 85
+                        },
+                        "result": true,
+                        "confidence": 0.999
+                    }
+                ]
+            }
+        },
+        {
+            "name": "留学海外経験",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.974,
+                "boxes": [
+                    {
+                        "name": "checkbox #7",
+                        "fieldId": "2a248427-801a-46ea-9483-a6ecdb82a4a8",
+                        "rectangle": {
+                            "width": 87,
+                            "y": 2745,
+                            "height": 142,
+                            "x": 1342
+                        },
+                        "confidence": 0.974,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "表彰顕彰",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.965,
+                "boxes": [
+                    {
+                        "name": "checkbox #8",
+                        "fieldId": "9623ed4d-c1dd-4ffe-9744-78cd47d74a51",
+                        "rectangle": {
+                            "x": 1699,
+                            "width": 90,
+                            "y": 2740,
+                            "height": 144
+                        },
+                        "confidence": 0.965,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "資格検定",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.974,
+                "boxes": [
+                    {
+                        "name": "checkbox #9",
+                        "fieldId": "be2e37cd-9dfd-4c4e-bc32-fb87ea862a64",
+                        "rectangle": {
+                            "width": 84,
+                            "y": 2747,
+                            "height": 142,
+                            "x": 2057
+                        },
+                        "result": false,
+                        "confidence": 0.974
+                    }
+                ]
+            }
+        },
+        {
+            "multiLine": {
+                "lines": []
+            },
+            "fieldId": "31a66806-1810-47d3-a554-0d8c18c39eec",
+            "name": "コメント欄",
+            "rectangle": {
+                "x": 368,
+                "width": 1774,
+                "y": 2972,
+                "height": 157
+            }
+        }
+    ]
+}

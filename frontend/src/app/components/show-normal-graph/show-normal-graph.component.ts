@@ -28,7 +28,8 @@ export class ShowNormalGraphComponent implements OnInit {
               private toastr: ToastrService) {}
 
   ngOnInit() {
-    if (this.cookieService.get('user_id') == ''){
+    if (this.cookieService.get('user_id') == '' || this.cookieService.get('user_id') == 'undefined'){
+      this.cookieService.deleteAll();
       window.location.href = this.googleUrl
     }
   }

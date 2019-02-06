@@ -1,0 +1,823 @@
+{
+    "requestId": "832ae11f-a3f4-4d59-a929-154ee2a41e5a",
+    "userId": "eb804d58-d3f0-4e5b-9f72-45f5f01e5b28",
+    "version": "2",
+    "state": "COMPLETED",
+    "created": "2018-12-19T05:52:44.111Z",
+    "modified": "2018-12-19T05:58:36.477Z",
+    "lastCorrectedAuthor": "tomohiro.kinjo@classi.jp",
+    "lastCorrectedDate": "2018-12-19T05:58:36.476Z",
+    "requestType": "form",
+    "templateId": "",
+    "results": [
+        {
+            "singleLine": {
+                "confidence": 0.007,
+                "characters": [
+                    {
+                        "character": "i",
+                        "confidence": 0.916
+                    },
+                    {
+                        "character": "p",
+                        "confidence": 0.881
+                    },
+                    {
+                        "character": "a",
+                        "confidence": 0.998
+                    },
+                    {
+                        "character": "d",
+                        "confidence": 0.998
+                    },
+                    {
+                        "confidence": 0.745,
+                        "character": "で"
+                    },
+                    {
+                        "character": "の",
+                        "confidence": 0.999
+                    },
+                    {
+                        "character": "海",
+                        "confidence": 0.983
+                    },
+                    {
+                        "character": "外",
+                        "confidence": 0.999
+                    },
+                    {
+                        "character": "の",
+                        "confidence": 0.998
+                    },
+                    {
+                        "character": "学",
+                        "confidence": 0.983
+                    },
+                    {
+                        "confidence": 0.884,
+                        "character": "校"
+                    },
+                    {
+                        "confidence": 0.781,
+                        "character": "体"
+                    },
+                    {
+                        "character": "験",
+                        "confidence": 0.024
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "の"
+                    },
+                    {
+                        "character": "感",
+                        "confidence": 0.999
+                    },
+                    {
+                        "confidence": 0.889,
+                        "character": "想"
+                    }
+                ],
+                "text": "ipadでの海外の学校体験の感想"
+            },
+            "fieldId": "7e3ff711-c1f2-4c98-9d18-b52b11a17ada",
+            "name": "gidai",
+            "rectangle": {
+                "y": 299,
+                "height": 120,
+                "x": 438,
+                "width": 1864
+            }
+        },
+        {
+            "fieldId": "1a14c9cf-1530-4e6a-a19f-05a54293e7bd",
+            "name": "nen",
+            "singleLine": {
+                "confidence": 0.815,
+                "characters": [
+                    {
+                        "character": "1",
+                        "confidence": 0.967
+                    }
+                ],
+                "text": "1"
+            },
+            "rectangle": {
+                "x": 310,
+                "width": 73,
+                "y": 508,
+                "height": 132
+            }
+        },
+        {
+            "name": "kumi",
+            "singleLine": {
+                "confidence": 0.847,
+                "characters": [
+                    {
+                        "character": "A",
+                        "confidence": 0.999
+                    }
+                ],
+                "text": "A"
+            },
+            "fieldId": "fe889691-476c-4c56-b144-8b9b14e75dc0",
+            "rectangle": {
+                "width": 75,
+                "y": 509,
+                "height": 132,
+                "x": 471
+            }
+        },
+        {
+            "fieldId": "d1ee525c-5bd6-45b8-8820-7d2b360481bf",
+            "name": "ban",
+            "singleLine": {
+                "confidence": 0.157,
+                "characters": [
+                    {
+                        "confidence": 0.899,
+                        "character": "2"
+                    },
+                    {
+                        "confidence": 0.205,
+                        "character": "4"
+                    }
+                ],
+                "text": "24"
+            },
+            "rectangle": {
+                "y": 509,
+                "height": 133,
+                "x": 630,
+                "width": 71
+            }
+        },
+        {
+            "name": "cb_a",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.956,
+                "boxes": [
+                    {
+                        "name": "checkbox #0",
+                        "fieldId": "6444af8d-213d-4d2d-89a3-6737ca7fa266",
+                        "rectangle": {
+                            "x": 1767,
+                            "width": 50,
+                            "y": 560,
+                            "height": 50
+                        },
+                        "confidence": 0.956,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "cb_b",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.976,
+                "boxes": [
+                    {
+                        "name": "checkbox #1",
+                        "fieldId": "270cb21c-758f-4310-a5a9-1abf4e9582b2",
+                        "rectangle": {
+                            "y": 555,
+                            "height": 50,
+                            "x": 1902,
+                            "width": 50
+                        },
+                        "confidence": 0.976,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "cb_c",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.969,
+                "boxes": [
+                    {
+                        "name": "checkbox #2",
+                        "fieldId": "5cb297b3-9150-4867-b19b-dcf5e5b28b8c",
+                        "rectangle": {
+                            "x": 2040,
+                            "width": 50,
+                            "y": 560,
+                            "height": 50
+                        },
+                        "result": false,
+                        "confidence": 0.969
+                    }
+                ]
+            }
+        },
+        {
+            "name": "cb_d",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.993,
+                "boxes": [
+                    {
+                        "name": "checkbox #3",
+                        "fieldId": "38901cd8-8403-4a9f-bf1b-fedb3f50682a",
+                        "rectangle": {
+                            "height": 50,
+                            "x": 2180,
+                            "width": 50,
+                            "y": 560
+                        },
+                        "confidence": 0.993,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "correction": "先週、学校の海外交流センターが計画した海外の学校",
+            "fieldId": "c0f198fe-9cf1-440b-a3a5-5352cdab9dd1",
+            "name": "free_1",
+            "singleLine": {
+                "confidence": 0.01,
+                "characters": [
+                    {
+                        "character": "先",
+                        "confidence": 0.751
+                    },
+                    {
+                        "confidence": 0.814,
+                        "character": "国"
+                    },
+                    {
+                        "confidence": 0.234,
+                        "character": "、"
+                    },
+                    {
+                        "character": "学",
+                        "confidence": 0.845
+                    },
+                    {
+                        "character": "校",
+                        "confidence": 0.925
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "の"
+                    },
+                    {
+                        "character": "海",
+                        "confidence": 0.918
+                    },
+                    {
+                        "character": "外",
+                        "confidence": 0.999
+                    },
+                    {
+                        "character": "交",
+                        "confidence": 0.968
+                    },
+                    {
+                        "confidence": 0.991,
+                        "character": "流"
+                    },
+                    {
+                        "character": "セ",
+                        "confidence": 0.993
+                    },
+                    {
+                        "confidence": 0.972,
+                        "character": "ン"
+                    },
+                    {
+                        "character": "タ",
+                        "confidence": 0.999
+                    },
+                    {
+                        "character": "ー",
+                        "confidence": 0.949
+                    },
+                    {
+                        "confidence": 0.99,
+                        "character": "が"
+                    },
+                    {
+                        "character": "計",
+                        "confidence": 0.895
+                    },
+                    {
+                        "confidence": 0.99,
+                        "character": "画"
+                    },
+                    {
+                        "confidence": 0.156,
+                        "character": "し"
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "た"
+                    },
+                    {
+                        "character": "海",
+                        "confidence": 0.416
+                    },
+                    {
+                        "character": "外",
+                        "confidence": 0.999
+                    },
+                    {
+                        "character": "の",
+                        "confidence": 0.999
+                    },
+                    {
+                        "character": "学",
+                        "confidence": 0.878
+                    },
+                    {
+                        "character": "校",
+                        "confidence": 0.711
+                    }
+                ],
+                "text": "先国、学校の海外交流センターが計画した海外の学校"
+            },
+            "rectangle": {
+                "y": 739,
+                "height": 100,
+                "x": 309,
+                "width": 1996
+            }
+        },
+        {
+            "correction": "体験に参加しましたので、その感想と、今後の取組とまとめ",
+            "singleLine": {
+                "confidence": 0,
+                "characters": [
+                    {
+                        "confidence": 0.341,
+                        "character": "休"
+                    },
+                    {
+                        "character": "駅",
+                        "confidence": 0.456
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "に"
+                    },
+                    {
+                        "confidence": 0.15,
+                        "character": "参"
+                    },
+                    {
+                        "confidence": 0.989,
+                        "character": "加"
+                    },
+                    {
+                        "character": "し",
+                        "confidence": 0.973
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "ま"
+                    },
+                    {
+                        "confidence": 0.989,
+                        "character": "し"
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "た"
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "の"
+                    },
+                    {
+                        "character": "で",
+                        "confidence": 0.993
+                    },
+                    {
+                        "confidence": 0.54,
+                        "character": "、"
+                    },
+                    {
+                        "character": "そ",
+                        "confidence": 0.234
+                    },
+                    {
+                        "character": "の",
+                        "confidence": 0.996
+                    },
+                    {
+                        "character": "感",
+                        "confidence": 0.906
+                    },
+                    {
+                        "character": "想",
+                        "confidence": 0.953
+                    },
+                    {
+                        "character": "と",
+                        "confidence": 0.996
+                    },
+                    {
+                        "character": "、",
+                        "confidence": 0.355
+                    },
+                    {
+                        "confidence": 0.97,
+                        "character": "今"
+                    },
+                    {
+                        "character": "後",
+                        "confidence": 0.866
+                    },
+                    {
+                        "confidence": 0.991,
+                        "character": "の"
+                    },
+                    {
+                        "character": "取",
+                        "confidence": 0.875
+                    },
+                    {
+                        "confidence": 0.665,
+                        "character": "組"
+                    },
+                    {
+                        "confidence": 0.767,
+                        "character": "と"
+                    },
+                    {
+                        "character": "ま",
+                        "confidence": 0.977
+                    },
+                    {
+                        "character": "と",
+                        "confidence": 0.914
+                    },
+                    {
+                        "confidence": 0.997,
+                        "character": "め"
+                    }
+                ],
+                "text": "休駅に参加しましたので、その感想と、今後の取組とまとめ"
+            },
+            "fieldId": "bd297e76-01f7-42f1-94aa-71e6fddc8a33",
+            "name": "free_2",
+            "rectangle": {
+                "x": 309,
+                "width": 1996,
+                "y": 846,
+                "height": 101
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.137,
+                "characters": [
+                    {
+                        "character": "ま",
+                        "confidence": 0.507
+                    },
+                    {
+                        "confidence": 0.275,
+                        "character": "す"
+                    },
+                    {
+                        "confidence": 0.992,
+                        "character": "。"
+                    }
+                ],
+                "text": "ます。"
+            },
+            "fieldId": "e891ad9f-45be-4240-90f7-e3dd5416f202",
+            "name": "free_3",
+            "rectangle": {
+                "y": 954,
+                "height": 99,
+                "x": 309,
+                "width": 1995
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.689,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "c14035a2-2d54-4fec-8372-e00ed12a2eaf",
+            "name": "free_4",
+            "rectangle": {
+                "width": 1996,
+                "y": 1060,
+                "height": 99,
+                "x": 308
+            }
+        },
+        {
+            "name": "free_5",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.75,
+                "characters": []
+            },
+            "fieldId": "29416a7a-4591-47c0-afef-d3bdee973006",
+            "rectangle": {
+                "y": 1167,
+                "height": 100,
+                "x": 308,
+                "width": 1996
+            }
+        },
+        {
+            "name": "free_6",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.801,
+                "characters": []
+            },
+            "fieldId": "6d0e30f9-3819-4770-b745-784887377e5f",
+            "rectangle": {
+                "y": 1274,
+                "height": 101,
+                "x": 308,
+                "width": 1996
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.723,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "30f93d1e-ef94-413d-8bc3-6875271ef0b1",
+            "name": "free_7",
+            "rectangle": {
+                "x": 307,
+                "width": 1997,
+                "y": 1383,
+                "height": 100
+            }
+        },
+        {
+            "fieldId": "d1f41690-5400-4717-a206-7eaa7fe92f66",
+            "name": "free_8",
+            "singleLine": {
+                "confidence": 0.616,
+                "characters": [],
+                "text": ""
+            },
+            "rectangle": {
+                "x": 307,
+                "width": 1997,
+                "y": 1490,
+                "height": 99
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.644,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "4a80d190-c719-4432-b7c7-a7d879f2d9f2",
+            "name": "free_9",
+            "rectangle": {
+                "y": 1596,
+                "height": 100,
+                "x": 307,
+                "width": 1997
+            }
+        },
+        {
+            "fieldId": "3fe65367-96c6-4209-9146-c3fe2a36370a",
+            "name": "free_10",
+            "singleLine": {
+                "confidence": 0.642,
+                "characters": [],
+                "text": ""
+            },
+            "rectangle": {
+                "height": 98,
+                "x": 306,
+                "width": 1998,
+                "y": 1704
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.739,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "54305654-2fa0-4e44-9735-356be86ab5b6",
+            "name": "free_11",
+            "rectangle": {
+                "x": 307,
+                "width": 1998,
+                "y": 1810,
+                "height": 101
+            }
+        },
+        {
+            "singleLine": {
+                "text": "",
+                "confidence": 0.709,
+                "characters": []
+            },
+            "fieldId": "dd56c53c-2b39-48da-b848-cf42ea44b0cd",
+            "name": "free_12",
+            "rectangle": {
+                "x": 306,
+                "width": 1999,
+                "y": 1918,
+                "height": 101
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.748,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "583436d7-35ce-48cd-8646-4aa3c9993d55",
+            "name": "free_13",
+            "rectangle": {
+                "x": 306,
+                "width": 1999,
+                "y": 2026,
+                "height": 99
+            }
+        },
+        {
+            "singleLine": {
+                "text": "",
+                "confidence": 0.662,
+                "characters": []
+            },
+            "fieldId": "d145c133-eeb0-4a79-b45a-94100bd44f71",
+            "name": "free_14",
+            "rectangle": {
+                "y": 2131,
+                "height": 101,
+                "x": 306,
+                "width": 2000
+            }
+        },
+        {
+            "name": "free_15",
+            "singleLine": {
+                "confidence": 0.659,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "4e80266c-d1ef-4de7-81ce-d1d49548e152",
+            "rectangle": {
+                "y": 2239,
+                "height": 100,
+                "x": 305,
+                "width": 2000
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.768,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "1659ee93-dbe9-48d4-999a-e5fc94258a45",
+            "name": "free_16",
+            "rectangle": {
+                "y": 2346,
+                "height": 100,
+                "x": 305,
+                "width": 2001
+            }
+        },
+        {
+            "fieldId": "e6bf5536-3808-42a7-a27c-8e3c2abe146a",
+            "name": "free_17",
+            "singleLine": {
+                "confidence": 0.754,
+                "characters": [],
+                "text": ""
+            },
+            "rectangle": {
+                "width": 2002,
+                "y": 2453,
+                "height": 102,
+                "x": 305
+            }
+        },
+        {
+            "name": "free_18",
+            "singleLine": {
+                "confidence": 0.842,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "cf8fde0c-0a5a-47b7-b626-a1116f22f0b5",
+            "rectangle": {
+                "y": 2562,
+                "height": 99,
+                "x": 305,
+                "width": 2002
+            }
+        },
+        {
+            "fieldId": "7d90d874-636d-4c0f-9921-26ded5c21d68",
+            "name": "free_19",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.695,
+                "characters": []
+            },
+            "rectangle": {
+                "y": 2668,
+                "height": 98,
+                "x": 305,
+                "width": 2003
+            }
+        },
+        {
+            "fieldId": "05c54f8a-03f2-4f9f-b164-12d165f0dc19",
+            "name": "free_20",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.645,
+                "characters": []
+            },
+            "rectangle": {
+                "width": 2004,
+                "y": 2773,
+                "height": 99,
+                "x": 304
+            }
+        },
+        {
+            "name": "free_21",
+            "singleLine": {
+                "confidence": 0.812,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "572e65ba-1bdc-4ffe-ab21-b354914feba4",
+            "rectangle": {
+                "x": 304,
+                "width": 2005,
+                "y": 2879,
+                "height": 101
+            }
+        },
+        {
+            "name": "free_22",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.743,
+                "characters": []
+            },
+            "fieldId": "37202efe-2f3c-438e-825b-f40f4576b840",
+            "rectangle": {
+                "width": 2006,
+                "y": 2987,
+                "height": 99,
+                "x": 303
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.809,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "7225d3a2-f31f-4c79-a5d3-6ec16e2c0b3e",
+            "name": "free_23",
+            "rectangle": {
+                "y": 3093,
+                "height": 99,
+                "x": 303,
+                "width": 2006
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.637,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "00bc7750-4fcf-4082-ba58-cc51d308d8e6",
+            "name": "free_24",
+            "rectangle": {
+                "y": 3199,
+                "height": 96,
+                "x": 302,
+                "width": 2008
+            }
+        }
+    ]
+}

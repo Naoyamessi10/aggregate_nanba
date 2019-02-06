@@ -1,0 +1,730 @@
+{
+    "requestId": "6bd48578-3a61-4088-87ba-c51d2ba137e7",
+    "userId": "eb804d58-d3f0-4e5b-9f72-45f5f01e5b28",
+    "version": "2",
+    "state": "COMPLETED",
+    "created": "2018-12-19T05:52:44.526Z",
+    "modified": "2018-12-19T05:53:11.523Z",
+    "requestType": "form",
+    "templateId": "",
+    "results": [
+        {
+            "fieldId": "5cb07710-5701-4ef3-968e-ec27cd1e3d49",
+            "name": "gidai",
+            "singleLine": {
+                "confidence": 0,
+                "characters": [
+                    {
+                        "confidence": 0.965,
+                        "character": "2"
+                    },
+                    {
+                        "confidence": 0.893,
+                        "character": "学"
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "期"
+                    },
+                    {
+                        "character": "の",
+                        "confidence": 0.999
+                    },
+                    {
+                        "confidence": 0.978,
+                        "character": "期"
+                    },
+                    {
+                        "character": "の",
+                        "confidence": 0.999
+                    },
+                    {
+                        "character": "言",
+                        "confidence": 0.38
+                    },
+                    {
+                        "character": "動",
+                        "confidence": 0.086
+                    }
+                ],
+                "text": "2学期の期の言動"
+            },
+            "rectangle": {
+                "y": 299,
+                "height": 120,
+                "x": 438,
+                "width": 1864
+            }
+        },
+        {
+            "fieldId": "bf8dccc9-25fc-4066-b3af-db158b68418f",
+            "name": "nen",
+            "singleLine": {
+                "text": "3",
+                "confidence": 0.839,
+                "characters": [
+                    {
+                        "character": "3",
+                        "confidence": 0.998
+                    }
+                ]
+            },
+            "rectangle": {
+                "y": 508,
+                "height": 132,
+                "x": 310,
+                "width": 73
+            }
+        },
+        {
+            "fieldId": "803adefd-176b-4afa-be69-429bbe03d0fa",
+            "name": "kumi",
+            "singleLine": {
+                "text": "2",
+                "confidence": 0.844,
+                "characters": [
+                    {
+                        "confidence": 0.998,
+                        "character": "2"
+                    }
+                ]
+            },
+            "rectangle": {
+                "x": 471,
+                "width": 75,
+                "y": 509,
+                "height": 132
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.838,
+                "characters": [
+                    {
+                        "confidence": 0.999,
+                        "character": "1"
+                    },
+                    {
+                        "character": "0",
+                        "confidence": 0.995
+                    }
+                ],
+                "text": "10"
+            },
+            "fieldId": "f55a47c8-add5-47b4-83aa-7bba63be91d5",
+            "name": "ban",
+            "rectangle": {
+                "x": 630,
+                "width": 71,
+                "y": 509,
+                "height": 133
+            }
+        },
+        {
+            "name": "cb_a",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.961,
+                "boxes": [
+                    {
+                        "name": "checkbox #0",
+                        "fieldId": "60ef81d9-9ee6-4254-abf3-f54e0b2127ad",
+                        "rectangle": {
+                            "y": 560,
+                            "height": 50,
+                            "x": 1767,
+                            "width": 50
+                        },
+                        "confidence": 0.961,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "cb_b",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.983,
+                "boxes": [
+                    {
+                        "name": "checkbox #1",
+                        "fieldId": "b50c69a5-bf3a-4429-b98f-8240491898b9",
+                        "rectangle": {
+                            "x": 1902,
+                            "width": 50,
+                            "y": 555,
+                            "height": 50
+                        },
+                        "confidence": 0.983,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "cb_c",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.991,
+                "boxes": [
+                    {
+                        "name": "checkbox #2",
+                        "fieldId": "b358c1ff-c9de-4993-8fa7-9728198f0fe3",
+                        "rectangle": {
+                            "width": 50,
+                            "y": 560,
+                            "height": 50,
+                            "x": 2040
+                        },
+                        "result": false,
+                        "confidence": 0.991
+                    }
+                ]
+            }
+        },
+        {
+            "name": "cb_d",
+            "checkboxGroup": {
+                "checkbox": null,
+                "confidence": 0.987,
+                "boxes": [
+                    {
+                        "name": "checkbox #3",
+                        "fieldId": "2cbddf3a-21f8-4a98-b442-c63cf6ed8665",
+                        "rectangle": {
+                            "x": 2180,
+                            "width": 50,
+                            "y": 560,
+                            "height": 50
+                        },
+                        "confidence": 0.987,
+                        "result": false
+                    }
+                ]
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0,
+                "characters": [
+                    {
+                        "character": "今",
+                        "confidence": 0.609
+                    },
+                    {
+                        "confidence": 0.936,
+                        "character": "日"
+                    },
+                    {
+                        "confidence": 0.995,
+                        "character": "は"
+                    },
+                    {
+                        "confidence": 0.285,
+                        "character": "1"
+                    },
+                    {
+                        "character": "月",
+                        "confidence": 0.557
+                    },
+                    {
+                        "character": "最",
+                        "confidence": 0.638
+                    },
+                    {
+                        "confidence": 0.12,
+                        "character": "終"
+                    },
+                    {
+                        "character": "日",
+                        "confidence": 0.926
+                    },
+                    {
+                        "confidence": 0.647,
+                        "character": "す"
+                    },
+                    {
+                        "character": "。",
+                        "confidence": 0.99
+                    },
+                    {
+                        "confidence": 0.969,
+                        "character": "2"
+                    },
+                    {
+                        "confidence": 0.978,
+                        "character": "月"
+                    },
+                    {
+                        "character": "1",
+                        "confidence": 0.98
+                    },
+                    {
+                        "character": "0",
+                        "confidence": 0.973
+                    },
+                    {
+                        "confidence": 0.835,
+                        "character": "日"
+                    },
+                    {
+                        "character": "も",
+                        "confidence": 0.2
+                    },
+                    {
+                        "character": "期",
+                        "confidence": 0.866
+                    },
+                    {
+                        "confidence": 0.439,
+                        "character": "す"
+                    },
+                    {
+                        "character": "試",
+                        "confidence": 0.245
+                    },
+                    {
+                        "confidence": 0.291,
+                        "character": "駅"
+                    },
+                    {
+                        "confidence": 0.99,
+                        "character": "に"
+                    },
+                    {
+                        "character": "同",
+                        "confidence": 0.191
+                    },
+                    {
+                        "confidence": 0.997,
+                        "character": "け"
+                    },
+                    {
+                        "confidence": 0.456,
+                        "character": "。"
+                    }
+                ],
+                "text": "今日は1月最終日す。2月10日も期す試駅に同け。"
+            },
+            "fieldId": "1a2dd9d1-2604-4a11-8419-da8e9cc5efa4",
+            "name": "free_1",
+            "rectangle": {
+                "y": 739,
+                "height": 100,
+                "x": 309,
+                "width": 1996
+            }
+        },
+        {
+            "name": "free_2",
+            "singleLine": {
+                "confidence": 0,
+                "characters": [
+                    {
+                        "confidence": 0.243,
+                        "character": "米"
+                    },
+                    {
+                        "confidence": 0.664,
+                        "character": "1"
+                    },
+                    {
+                        "confidence": 0.55,
+                        "character": "固"
+                    },
+                    {
+                        "confidence": 0.997,
+                        "character": "間"
+                    },
+                    {
+                        "confidence": 0.999,
+                        "character": "は"
+                    },
+                    {
+                        "character": "話",
+                        "confidence": 0.24
+                    },
+                    {
+                        "character": "を",
+                        "confidence": 0.21
+                    },
+                    {
+                        "character": "頭",
+                        "confidence": 0.196
+                    },
+                    {
+                        "character": "張",
+                        "confidence": 0.233
+                    },
+                    {
+                        "character": "も",
+                        "confidence": 0.119
+                    },
+                    {
+                        "confidence": 0.256,
+                        "character": "な"
+                    },
+                    {
+                        "character": "が",
+                        "confidence": 0.997
+                    },
+                    {
+                        "character": "あ",
+                        "confidence": 0.988
+                    },
+                    {
+                        "character": "り",
+                        "confidence": 0.994
+                    },
+                    {
+                        "character": "ま",
+                        "confidence": 0.999
+                    },
+                    {
+                        "confidence": 0.877,
+                        "character": "す"
+                    }
+                ],
+                "text": "米1固間は話を頭張もながあります"
+            },
+            "fieldId": "8177dee4-4691-42a5-aab2-c1dda971759c",
+            "rectangle": {
+                "width": 1996,
+                "y": 846,
+                "height": 101,
+                "x": 309
+            }
+        },
+        {
+            "fieldId": "5ac3e920-a7fe-4f99-8905-307f4ab37ced",
+            "name": "free_3",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.716,
+                "characters": []
+            },
+            "rectangle": {
+                "x": 309,
+                "width": 1995,
+                "y": 954,
+                "height": 99
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.691,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "795181c8-3fec-475b-8d79-f8142edc5352",
+            "name": "free_4",
+            "rectangle": {
+                "y": 1060,
+                "height": 99,
+                "x": 308,
+                "width": 1996
+            }
+        },
+        {
+            "name": "free_5",
+            "singleLine": {
+                "confidence": 0.656,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "660954e3-a425-4c6f-80bb-b224eae629bd",
+            "rectangle": {
+                "x": 308,
+                "width": 1996,
+                "y": 1167,
+                "height": 100
+            }
+        },
+        {
+            "name": "free_6",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.726,
+                "characters": []
+            },
+            "fieldId": "6b982c9d-f2e6-45e9-b8ee-3efe5db6ffae",
+            "rectangle": {
+                "x": 308,
+                "width": 1996,
+                "y": 1274,
+                "height": 101
+            }
+        },
+        {
+            "fieldId": "a0ac41f7-63ff-465f-99c6-622a424e0d3b",
+            "name": "free_7",
+            "singleLine": {
+                "confidence": 0.76,
+                "characters": [],
+                "text": ""
+            },
+            "rectangle": {
+                "width": 1997,
+                "y": 1383,
+                "height": 100,
+                "x": 307
+            }
+        },
+        {
+            "name": "free_8",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.732,
+                "characters": []
+            },
+            "fieldId": "197a0742-4126-4d3a-9ad0-ae261099c680",
+            "rectangle": {
+                "y": 1490,
+                "height": 99,
+                "x": 307,
+                "width": 1997
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.752,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "1d3558ec-da22-4219-92fc-f6a6fd0c6982",
+            "name": "free_9",
+            "rectangle": {
+                "x": 307,
+                "width": 1997,
+                "y": 1596,
+                "height": 100
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.642,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "da1cf529-74bd-4aec-85da-4d6b122fbf5f",
+            "name": "free_10",
+            "rectangle": {
+                "y": 1704,
+                "height": 98,
+                "x": 306,
+                "width": 1998
+            }
+        },
+        {
+            "fieldId": "baa0010d-cf24-4b2d-9493-9957fcea6677",
+            "name": "free_11",
+            "singleLine": {
+                "confidence": 0.72,
+                "characters": [],
+                "text": ""
+            },
+            "rectangle": {
+                "y": 1810,
+                "height": 101,
+                "x": 307,
+                "width": 1998
+            }
+        },
+        {
+            "fieldId": "711c3c87-da02-439a-85df-1adb3d056eaa",
+            "name": "free_12",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.766,
+                "characters": []
+            },
+            "rectangle": {
+                "width": 1999,
+                "y": 1918,
+                "height": 101,
+                "x": 306
+            }
+        },
+        {
+            "fieldId": "4414c3a7-7b5f-4338-b617-e369a45b8926",
+            "name": "free_13",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.807,
+                "characters": []
+            },
+            "rectangle": {
+                "y": 2026,
+                "height": 99,
+                "x": 306,
+                "width": 1999
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.843,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "b811e0d3-ad18-4137-8382-099e7d22d9bb",
+            "name": "free_14",
+            "rectangle": {
+                "width": 2000,
+                "y": 2131,
+                "height": 101,
+                "x": 306
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.7,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "2f73f370-1a59-4dfb-9548-3f96d66becdc",
+            "name": "free_15",
+            "rectangle": {
+                "x": 305,
+                "width": 2000,
+                "y": 2239,
+                "height": 100
+            }
+        },
+        {
+            "fieldId": "fde30ac3-a94e-4284-bafe-3b46255f8c8a",
+            "name": "free_16",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.775,
+                "characters": []
+            },
+            "rectangle": {
+                "y": 2346,
+                "height": 100,
+                "x": 305,
+                "width": 2001
+            }
+        },
+        {
+            "name": "free_17",
+            "singleLine": {
+                "confidence": 0.789,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "89514943-0a6e-4064-afe9-b794dc9c85f8",
+            "rectangle": {
+                "x": 305,
+                "width": 2002,
+                "y": 2453,
+                "height": 102
+            }
+        },
+        {
+            "singleLine": {
+                "text": "",
+                "confidence": 0.779,
+                "characters": []
+            },
+            "fieldId": "73d8021d-300d-4eef-b8d6-a9d62bde7ec9",
+            "name": "free_18",
+            "rectangle": {
+                "width": 2002,
+                "y": 2562,
+                "height": 99,
+                "x": 305
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.848,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "d5b7d527-fdaf-4621-af41-c01a92aaa984",
+            "name": "free_19",
+            "rectangle": {
+                "y": 2668,
+                "height": 98,
+                "x": 305,
+                "width": 2003
+            }
+        },
+        {
+            "singleLine": {
+                "text": "",
+                "confidence": 0.723,
+                "characters": []
+            },
+            "fieldId": "f689ad06-f9fb-42e8-aafd-7a6d0c477e51",
+            "name": "free_20",
+            "rectangle": {
+                "width": 2004,
+                "y": 2773,
+                "height": 99,
+                "x": 304
+            }
+        },
+        {
+            "name": "free_21",
+            "singleLine": {
+                "text": "",
+                "confidence": 0.784,
+                "characters": []
+            },
+            "fieldId": "144e6189-6234-42a8-bf87-dc8ac84988ca",
+            "rectangle": {
+                "width": 2005,
+                "y": 2879,
+                "height": 101,
+                "x": 304
+            }
+        },
+        {
+            "singleLine": {
+                "text": "",
+                "confidence": 0.793,
+                "characters": []
+            },
+            "fieldId": "2ad071ce-45e1-407e-83c2-3fd4c70a0765",
+            "name": "free_22",
+            "rectangle": {
+                "x": 303,
+                "width": 2006,
+                "y": 2987,
+                "height": 99
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.797,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "33498638-acae-4d40-a3db-5560df55b264",
+            "name": "free_23",
+            "rectangle": {
+                "y": 3093,
+                "height": 99,
+                "x": 303,
+                "width": 2006
+            }
+        },
+        {
+            "singleLine": {
+                "confidence": 0.767,
+                "characters": [],
+                "text": ""
+            },
+            "fieldId": "c5d98944-8686-4e0a-a15d-d8d716eefa75",
+            "name": "free_24",
+            "rectangle": {
+                "width": 2008,
+                "y": 3199,
+                "height": 96,
+                "x": 302
+            }
+        }
+    ]
+}
