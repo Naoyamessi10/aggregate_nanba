@@ -7,6 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpsInterceptor } from './shared/services/http.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 
 import { AppComponent } from './app.component';
 import { TopMenuComponent } from './components/top-menu.component';
@@ -40,7 +41,8 @@ import { SelectDateComponent } from './shared/components/select-date/select-date
       timeOut: 2000,
       positionClass: 'toast-top-center',
       preventDuplicates: false
-    })
+    }),
+    Ng2FlatpickrModule,
   ],
   providers: [
     InputDateService,

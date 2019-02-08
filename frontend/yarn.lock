@@ -2754,6 +2754,11 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
+flatpickr@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.2.tgz#47c8ad472a096e5fb7e74b809b0703535383f20d"
+  integrity sha512-jDy4QYGpmiy7+Qk8QvKJ4spjDdxcx9cxMydmq1x427HkKWBw0qizLYeYM2F6tMcvvqGjU5VpJS55j4LnsaBblA==
+
 flush-write-stream@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.0.3.tgz#c5d586ef38af6097650b49bc41b55fabb19f35bd"
@@ -3044,9 +3049,9 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
-"google-palette@https://github.com/google/palette.js.git":
+"google-palette@git+https://github.com/google/palette.js.git":
   version "1.0.0"
-  resolved "https://github.com/google/palette.js.git#8418158452401c15d276d9632b88933aa581718f"
+  resolved "git+https://github.com/google/palette.js.git#8418158452401c15d276d9632b88933aa581718f"
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
@@ -4682,6 +4687,25 @@ neo-async@^2.5.0:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
   integrity sha512-vdqTKI9GBIYcAEbFAcpKPErKINfPF5zIuz3/niBfq8WUZjpT2tytLlFVrBgWdOtqI4uaA/Rb6No0hux39XXDuw==
+
+ng2-flatpickr@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/ng2-flatpickr/-/ng2-flatpickr-7.0.1.tgz#90deb82ec1de8681427e4630580a5048d619e6bc"
+  integrity sha512-CO96iXzhfq/aexyO7mmNkoNMUypF8dtBch7SASdgyx2M46jT0b4eztYKSx93Fk6bJxc2ErweWzCEjNw7BMLftA==
+  dependencies:
+    tslib "^1.9.0"
+
+ngx-cookie-service@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-cookie-service/-/ngx-cookie-service-2.1.0.tgz#8023f9edfcd8bd4f0b299b1f0c263112dbb0e261"
+  integrity sha512-7g7NEo7dYp6ap0j5qZ4Nf6nrU4WVdx8ycRQbWyLPps6mrR/+5vKU73ie0CMuKzl625bDTBjjJ60AmqTsp4l+AQ==
+
+ngx-toastr@^9.1.1:
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-9.1.1.tgz#c7ec0284d13951422ccf47439a387372ddccc768"
+  integrity sha512-v43BmIXPmwMRx9Uv0ru2UaPQLA14gTsqWgXrO1DKC8RXnBGGoQEE48cVCaDX1GhaGM5GSzVO2s0o+nb688zsFw==
+  dependencies:
+    tslib "^1.9.0"
 
 nice-try@^1.0.4:
   version "1.0.5"

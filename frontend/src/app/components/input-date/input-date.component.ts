@@ -53,6 +53,9 @@ export class InputDateComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.onload = function(){
+      (<HTMLInputElement> document.getElementById("aaa")).disabled = false;
+    };
     this.getNewid();
     this.inputdateService.getWorkTimesHour().subscribe((response) => {
       this.work_times_hour = response;
@@ -64,6 +67,7 @@ export class InputDateComponent implements OnInit {
     if(this.cookieService.get('user_id') !== ''){
       this.inputdateService.getCategories().subscribe((response) => {
         this.categories = response;
+        (<HTMLInputElement> document.getElementById("aaa")).disabled = false;
       })
     }
   }
@@ -99,9 +103,11 @@ export class InputDateComponent implements OnInit {
   }
 
   google_calendar(){
+    (<HTMLInputElement> document.getElementById("aaa")).disabled = true;
       this.inputdateService.getGoogleCalendar(this.cookieService.get('user_id')).subscribe((response) => {
         response = response;
         this.toastr.success('googleカレンダーから取得しました！');
+        (<HTMLInputElement> document.getElementById("aaa")).disabled = false;
         if (this.cookieService.get('user_id') !== response['cookie']){
           this.cookieService.set('user_id', response['cookie'])
         }

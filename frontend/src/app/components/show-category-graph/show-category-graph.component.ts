@@ -69,6 +69,7 @@ export class ShowCategoryGraphComponent implements OnInit {
   }
 
   onShowWeekGraph(){
+    this.change = false;
     if (this.form['category_id'] !== undefined && this.form['category_id'] !== 'null'){
       var dt = new Date();
       var kako = dt.getDay() - 1;
@@ -87,6 +88,7 @@ export class ShowCategoryGraphComponent implements OnInit {
   }
 
   onShowGraph(){
+    this.change = false;
     this.form['type_flag'] = 'category'
     if (this.form['category_id'] !== undefined && this.form['month'] !== undefined){
       this.showGraphService.getWorkTimes(this.form).subscribe((response) => {

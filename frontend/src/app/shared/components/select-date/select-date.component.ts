@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ShowGraphService } from '../../../components/services/show-graph.service';
 import { Category } from '../../../components/category';
 import { CookieService } from 'ngx-cookie-service';
+import flatpickr from "flatpickr";
 
 @Component({
   selector: 'app-select-date',

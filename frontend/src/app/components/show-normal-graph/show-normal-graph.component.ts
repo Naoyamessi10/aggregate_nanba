@@ -57,6 +57,7 @@ export class ShowNormalGraphComponent implements OnInit {
   }
 
   onShowWeekGraph(){
+    this.change = false;
     var dt = new Date();
     var kako = dt.getDay() - 1;
     var dayday = dt.getDate() - kako;
@@ -73,6 +74,7 @@ export class ShowNormalGraphComponent implements OnInit {
   }
 
   onShowGraph(){
+    this.change = false;
     if (this.month !== undefined){
       this.showGraphService.getWorkTimes(this.onCreateParams()).subscribe((response) => {
         this.data = response;
