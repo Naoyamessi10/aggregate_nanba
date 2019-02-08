@@ -28,7 +28,8 @@ export class ShowNormalGraphComponent implements OnInit {
               private toastr: ToastrService) {}
 
   ngOnInit() {
-    if (this.cookieService.get('user_id') == ''){
+    if (this.cookieService.get('user_id') == '' || this.cookieService.get('user_id') == 'undefined'){
+      this.cookieService.deleteAll();
       window.location.href = this.googleUrl
     }
   }
@@ -56,6 +57,7 @@ export class ShowNormalGraphComponent implements OnInit {
   }
 
   onShowWeekGraph(){
+    this.change = false;
     var dt = new Date();
     var kako = dt.getDay() - 1;
     var dayday = dt.getDate() - kako;
@@ -72,6 +74,7 @@ export class ShowNormalGraphComponent implements OnInit {
   }
 
   onShowGraph(){
+    this.change = false;
     if (this.month !== undefined){
       this.showGraphService.getWorkTimes(this.onCreateParams()).subscribe((response) => {
         this.data = response;

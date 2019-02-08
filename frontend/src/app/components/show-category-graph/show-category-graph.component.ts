@@ -39,7 +39,8 @@ export class ShowCategoryGraphComponent implements OnInit {
    }
 
   ngOnInit() {
-    if (this.cookieService.get('user_id') == ''){
+    if (this.cookieService.get('user_id') == '' || this.cookieService.get('user_id') == 'undefined'){
+      this.cookieService.deleteAll();
       window.location.href = this.googleUrl
     }
     this.form['user_id'] = this.cookieService.get('user_id')
@@ -68,6 +69,7 @@ export class ShowCategoryGraphComponent implements OnInit {
   }
 
   onShowWeekGraph(){
+    this.change = false;
     if (this.form['category_id'] !== undefined && this.form['category_id'] !== 'null'){
       var dt = new Date();
       var kako = dt.getDay() - 1;
@@ -86,6 +88,7 @@ export class ShowCategoryGraphComponent implements OnInit {
   }
 
   onShowGraph(){
+    this.change = false;
     this.form['type_flag'] = 'category'
     if (this.form['category_id'] !== undefined && this.form['month'] !== undefined){
       this.showGraphService.getWorkTimes(this.form).subscribe((response) => {
