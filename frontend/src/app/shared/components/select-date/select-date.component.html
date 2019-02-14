@@ -8,21 +8,6 @@
           {{ category.title }}
         </option>
       </select>
-      <select formControlName="month" class="month" (change)="onChangeMonth($event)">
-        <option class="month-select" [value]="null">
-          月を選択
-        </option>
-        <option class="month-list" *ngFor="let month of all_month" [value]="month">
-          {{ month }}月
-        </option>
-      </select>
-      <select formControlName="day" class="day" (change)="onChangeday($event)">
-        <option class="day-select" [value]="null">
-          日を選択
-        </option>
-        <option class="day-list" *ngFor="let day of all_day" [value]="day">
-          {{ day }}日
-        </option>
-      </select>
+      <input formControlName="calendar" class="input" id="myInput" type="text" placeholder="期間を選択" (change)="onChangeday($event)"/>
     </div>
   </form>
