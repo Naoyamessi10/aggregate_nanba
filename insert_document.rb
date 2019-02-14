@@ -1,4 +1,3 @@
-require 'date'
 require 'pry'
 require "json"
 require 'csv'
@@ -7,61 +6,86 @@ module InsertDocument
   class << self
 
     KumibanTsv = 'kumiban.tsv'
-    ImagesCsv = '14_images.csv'
-  
+    ImagesTsv = 'Tegaki-API_access_script/api_test_data/0001.ポートフォリオ/100.実証第1校/0004.手書き画像_リクエストID_対応表/20181219145244.tsv'
+
     def insert_document
       school_id = '1217'
-      folder = []
-      json_files_path = []
-      datas = []
+      key1 = 931819219
+      key2 = 834804294
+      json_files = []
+      recognition_datas = []
+      user_ids = {}
+      current_d = 'Tegaki-API_access_script'
 
       SchoolDatabase.switch_to_school(school_id)
-      students = CSV.read(KumibanTsv, col_sep: "\t", headers: true)
-      #ile = 'images/*/**/*'
-      #folder = 'image'
-      #files = Hash.new { |hash, key| hash[key] = [] }
-      students.each do |student|
-        binding.pry
+      numbers = CSV.read(KumibanTsv, col_sep: "\t", headers: true)
+      numbers.each do |number|
+        user_ids["#{number['grade_code']}-#{number['name']}-#{number['attendance_number']}"] = number['user_id']
       end
 
-      Dir.glob('Tegaki-API_access_script/api_test_data/0001.ポートフォリオ/100.実証第1校/0003.修正結果/**/*.json') do |item|
-        json_files_path << item
+      Dir.glob('Tegaki-API_access_script/api_test_data/0001.ポートフォリオ/100.実証第1校/0003.修正結果/**/*.json') do |json_file|
+        json_files << json_file
       end
 
-      json_files_path.each do |file|
+      json_files.each do |file|
         File.open(file) do |json|
-          datas << JSON.load(json)
+          recognition_datas << JSON.load(json)
         end
       end
 
-      datas.each do |data|
-        documents = Document.new()
+      recognition_datas.each do |data|
+        (0..(data['results'].length - 1)).each do |i|
+          next if data['results'][i].nil?
+          @title = decision(data['results'][i]) if data['results'][i]['name'] == 'gidai'
+          @nen = grade(data['results'][i]) if data['results'][i]['name'] == 'nen'
+          @kumi = decision(data['results'][i]) if data['results'][i]['name'] == 'kumi'
+          @ban = decision(data['results'][i]) if data['results'][i]['name'] == 'ban'
+          @content = "#{@content}#{decision(data['results'][i])}" if data['results'][i]['name'].start_with?('free')
+        end
+        next unless user_ids.key?("#{@nen}-#{@kumi}-#{@ban}")
+        user_id = user_ids["#{@nen}-#{@kumi}-#{@ban}"]
+        user_id = user_id.to_i ^ key1 ^ key2
+        path = "#{Dir.pwd}/#{current_d}/#{files_path(data['requestId'])}"
+        next if File.extname(path).slice(1..-1).nil?
+
+        ActiveRecord::Base.transaction do
+          document = Document.new(title: @title, content: @content, create_user_id: user_id)
+          gazou = document.upload_files.new(uuid: UploadFile.generate_uuid, file_name: File.basename(path), file_extension: File.extname(path).slice(1..-1), create_user_id: user_id)
+          document.save!
+          s3 = Aws::S3::Resource.new(region: Aws.config[:region])
+          obj = s3.bucket(ENV['AWS_S3_BUCKET']).object("#{school_id}/#{user_id}/#{gazou.uuid}")
+          obj.upload_file(path)
+          activity_record = ActivityRecord.new(record_id: document.id, record_type: 'Document', published: 1, create_user_id: user_id)
+          activity_record.save!
+        end
       end
 
-      #Dir::mkdir(folder) unless  Dir.exist?(folder)
-
-      #Dir.glob(file) do |path|
-      #  files["#{Dir.pwd}/#{path}"].push(path.slice(7,8),File.basename(path))
-      #end
-
-      #images.each do |image|
-      #  next unless (files.find { |k, v| v[1] == image['image']}).nil? == false
-      #  Dir::mkdir("#{folder}/#{files.find { |k, v| v[1] == image['image']}[1][0]}") unless  Dir.exist?("#{folder}/#{files.find { |k, v| v[1] == image['image']}[1][0]}")
-      #  FileUtils.cp(files.find { |k, v| v[1] == image['image']}[0], "#{folder}/#{files.find { |k, v| v[1] == image['image']}[1][0]}/#{files.find { |k, v| v[1] == image['image']}[1][1]}")
-      #end
-
-      #images.each do |image|
-      #  next if File.exist?(path = "#{Dir.pwd}/#{folder}/#{DateTime.parse(image['created_at']).strftime('%Y%m%d')}/#{image['image']}") == false 
-      #  documents = Document.where(created_at: image['created_at'], create_user_id: image['user_id'])
-      #  next unless documents.count == 1
-      #  document = documents.first
-      #  gazou = document.upload_files.new(uuid: UploadFile.generate_uuid, file_name: image['file_name'], file_extension: 'jpg', create_user_id: image['user_id'], created_at: image['created_at'], updated_at: image['updated_at'])
-      #  document.save!
-      #  s3 = Aws::S3::Resource.new(region: Aws.config[:region])
-      #  obj = s3.bucket(ENV['AWS_S3_BUCKET']).object("#{school_id}/#{image['user_id']}/#{gazou.uuid}")
-      #  obj.upload_file(path)
-      #end
     end
+
+    def files_path(id)
+      path = ''
+      images = CSV.read(ImagesTsv, col_sep: "\t", headers: true)
+      images.each do |image|
+        path = image[0] if image[1] == id
+      end
+      path
+    end
+
+    private
+
+    def grade(data)
+      data = data['correction'].nil? ? data['singleLine']['text'] : data['correction']
+      change_grade(data)
+    end
+
+    def change_grade(data)
+      'K' + data
+    end
+
+    def decision(data)
+      data['correction'].nil? ? data['singleLine']['text'] : data['correction']
+    end
+
   end
 end
 
