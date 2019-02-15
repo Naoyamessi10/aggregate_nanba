@@ -60,6 +60,12 @@ export class ShowCategoryGraphComponent implements OnInit {
   }
 
   onShowGraph(){
+    if(this.form['day'] == undefined){
+      this.toastr.error('表示する期間を選択してください。');
+    }
+    if(this.form['category_id'] == undefined){
+      this.toastr.error('カテゴリを選択してください。');
+    }
     this.change = false;
     this.form['type_flag'] = 'category'
     if (this.form['category_id'] !== undefined && this.form['day'] !== undefined){
