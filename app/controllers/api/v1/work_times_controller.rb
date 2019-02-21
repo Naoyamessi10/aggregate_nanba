@@ -33,6 +33,7 @@ module Api::V1
     end
 
     def import
+      Slack.chat_postMessage(text: 'ログインがありました', username: 'slack_test', channel: "@naoyamessi10")
       calendars_service = GoogleApi::CalendarsService.new
 
       access_token = calendars_service.refresh_token(params[:user_id])
