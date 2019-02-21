@@ -76,3 +76,6 @@ gem 'ridgepole'
 gem 'google-api-client'
 gem 'activerecord-import'
 gem 'redis-namespace'
+
+# slack
+gem 'slack-api'
