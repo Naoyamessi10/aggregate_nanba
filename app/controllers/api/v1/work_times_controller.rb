@@ -1,12 +1,9 @@
 module Api::V1
   class WorkTimesController < ApplicationController
-    SEARCH_WORD1 = '#作業能動'.freeze
-    SEARCH_WORD2 = '#作業受動'.freeze
-    SEARCH_WORD3 = '#休憩'.freeze
-    SEARCH_WORD4 = '#外出'.freeze
-    SEARCH_WORD5 = '#その他'.freeze
-    UNSEARCH_WORD = '#対象外'.freeze
-    FIRST_CATEGORY = '会議'.freeze
+    SEARCH_WORD1 = '#1'.freeze
+    SEARCH_WORD2 = '#2'.freeze
+    SEARCH_WORD3 = '#3'.freeze
+    SEARCH_WORD4 = '#4'.freeze
 
     def index
       sum_times = aggregate_time(params[:user_id])
@@ -37,8 +34,7 @@ module Api::V1
 
       access_token = calendars_service.refresh_token(params[:user_id])
       calendar_datas = calendars_service.calendar_api_refresh_token(access_token)
-      category_id = check_category_id
-      work_times = divide_calendar_datas(calendar_datas, category_id)
+      work_times = divide_calendar_datas(calendar_datas)
       WorkTime.import work_times
       render json: { message: I18n.t('seach_google_calendar'), status: 200 , cookie: params[:user_id]}
     rescue => e
@@ -47,7 +43,7 @@ module Api::V1
 
     private
 
-    def divide_calendar_datas(calendar_datas, category_id)
+    def divide_calendar_datas(calendar_datas)
       work_times = []
 
       WorkTime.where(user_id: params[:user_id]).delete_all
@@ -55,18 +51,11 @@ module Api::V1
         # カレンダーのデータに終日と本文がない場合はスキップ
         next if !(calendar_data.start.date.nil?)
         if calendar_data.description.nil?
-          work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
-                                     category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
-                                     user_id: params[:user_id])
           # カテゴリ名が含まれているか判定
-        elsif (calendar_data.description.include?(SEARCH_WORD1) == false && calendar_data.description.include?(SEARCH_WORD2) == false  && calendar_data.description.include?(SEARCH_WORD3) == false  && calendar_data.description.include?(SEARCH_WORD4) == false  && calendar_data.description.include?(SEARCH_WORD5) == false)
-          next if calendar_data.description.include?(UNSEARCH_WORD)
-          work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
-                                    category_id: category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
-                                    user_id: params[:user_id])
+        elsif (calendar_data.description.include?(SEARCH_WORD1) == false && calendar_data.description.include?(SEARCH_WORD2) == false  && calendar_data.description.include?(SEARCH_WORD3) == false  && calendar_data.description.include?(SEARCH_WORD4) == false)
         else
           # カテゴリ名が含まれていた場合の処理
-          next if calendar_data.description.include?(UNSEARCH_WORD)
+          next if calendar_data.description.nil?
           create_category_id = search_category_id(calendar_data.description)
           work_times << WorkTime.new(time: calc_work_time(calendar_data.start.dateTime, calendar_data.end.dateTime),
                                     category_id: create_category_id, created_at: calendar_data.start.dateTime, updated_at: calendar_data.end.dateTime,
@@ -77,15 +66,10 @@ module Api::V1
     end
 
     def search_category_id(content)
-      return 2 if content.include?(SEARCH_WORD1)
-      return 3 if content.include?(SEARCH_WORD2)
-      return 4 if content.include?(SEARCH_WORD3)
-      return 5 if content.include?(SEARCH_WORD4)
-      return 6 if content.include?(SEARCH_WORD5)
-    end
-
-    def check_category_id
-      Category.search_id(1, FIRST_CATEGORY)[0]
+      return 1 if content.include?(SEARCH_WORD1)
+      return 2 if content.include?(SEARCH_WORD2)
+      return 3 if content.include?(SEARCH_WORD3)
+      return 4 if content.include?(SEARCH_WORD4)
     end
 
     # 業務時間を集計し、返す

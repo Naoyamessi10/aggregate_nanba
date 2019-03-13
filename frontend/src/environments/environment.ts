@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'http://192.168.201.120:3002/api/v1',
+  apiEndpoint: 'http://192.168.201.109:3002/api/v1',
   googleUrl: 'https://accounts.google.com/o/oauth2/auth?client_id=1062349073075-3l06qo9t1huckd0d58mr1g6n3h9tpgbm.apps.googleusercontent.com&redirect_uri=http://aggregate.nanba.jp:4202&scope=https://www.googleapis.com/auth/calendar&response_type=code&approval_prompt=force&access_type=offline'
 };
 

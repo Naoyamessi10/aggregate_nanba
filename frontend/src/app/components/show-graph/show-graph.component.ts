@@ -13,7 +13,7 @@ import { WorkTime } from '../work_time';
 export class ShowGraphComponent {
   @Input() data = [];
   work_time: WorkTime;
-  color_array = ['#ff1493', '#87cefa', '#bdb76b','#d3d3d3', '#808080', '#fffff0', '#afeeee','#c0c0c0', '#696969','#ffe4e1', '#000080','#f0f8ff', '#4169e1', '#add8e6','#ff00ff']
+  color_array = ['#ff1493', '#87cefa', '#bdb76b','#d3d3d3']
 
   @ViewChild('myChart') ref: ElementRef;
 
@@ -25,7 +25,7 @@ export class ShowGraphComponent {
   ngOnInit() {
     this.context = (<HTMLCanvasElement>this.ref.nativeElement).getContext('2d');
     this.context.canvas.height = 300;
-    this.draw('pie', this.getworktimes(this.data));
+    this.draw('bar', this.getworktimes(this.data));
   }
 
   getworktimes(data){
