@@ -1,0 +1,1867 @@
+swagger: '2.0'
+info:
+  title: Classi Whitecat
+  description: ''
+  version: 1.0.0
+host: 'localhost:3000'
+basePath: /whitecat
+tags:
+  - name: activity
+    description: Operations about activity
+  - name: upload_files
+    description: Operations about file upload
+schemes:
+  - https
+paths:
+  /documents:
+    post:
+      tags:
+        - activity
+      summary: Create new document
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: document_params
+          in: body
+          description: document's object to create
+          required: true
+          schema:
+            $ref: '#/definitions/DocumentParamsForCreate'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Document'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '404':
+          description: Album not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '422':
+          description: Create error!
+          schema:
+            $ref: '#/definitions/RecordInvalidError'
+
+  /documents/{id}:
+    put:
+      tags:
+        - activity
+      summary: Update existed document
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: id of document
+          required: true
+          type: integer
+        - name: document_params
+          in: body
+          description: Document params for edit post
+          required: true
+          schema:
+          $ref: '#/definitions/DocumentParamsForUpdate'
+      responses:
+        '200':
+          description: Updated
+          schema:
+            $ref: '#/definitions/Document'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+        '422':
+          description: Update error
+          schema:
+            $ref: '#/definitions/RecordInvalidError'
+    delete:
+      tags:
+        - activity
+      summary: Delete document
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: id of document
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Deleted
+          schema:
+            $ref: '#/definitions/DocumentWithNoFiles'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+
+  '/activity_records/{id}':
+    get:
+      tags:
+        - activity
+      summary: Get a activity record
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: Id of record
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ActivityRecordWithAssessments'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+
+  '/activity_records/{id}/edit':
+    get:
+      tags:
+        - activity
+      summary: Get info of activity record for edit answer
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: Id of record
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ActivityRecordEdit'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+
+  /activity_records/{id}/update:
+    put:
+      tags:
+        - activity
+      summary: Delete questionnaire from album
+      description: Delete questionnaire from album
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: Id of activity_record
+          required: true
+          type: integer
+        - name: activity_record_params
+          in: body
+          description: list album of questionnaire
+          required: true
+          schema:
+            $ref: '#/definitions/ActivityRecordParamsUpdate'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ActivityRecordUpdate'
+        '401':
+          description: Unauthenticated
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+        '422':
+          description: Update failed because of Validation failed
+          schema:
+            $ref: '#/definitions/RecordInvalidError'
+
+  /activity_records/{id}/read_assessments:
+    put:
+      tags:
+        - activity
+      summary: update is_read assessment's activity
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: id of activity record
+          required: true
+          type: integer
+        - name: type
+          in: body
+          description: Space params to publish
+          required: true
+          schema:
+            $ref: '#/definitions/ReadAssessmentParams'
+      responses:
+        '200':
+          description: Updated
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+        '422':
+          description: Update error
+          schema:
+            $ref: '#/definitions/RecordInvalidError'
+
+  /self_assessments:
+    post:
+      tags:
+        - self_assessments
+      summary: Create Self assessment
+      description: Create activity record self assessment
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          description: self assessment params
+          required: true
+          schema:
+            $ref: '#/definitions/SelfAssessmentParams'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SelfAssessment'
+        '401':
+          description: Unauthenticated
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '422':
+          description: Create failed because of Validation failed
+          schema:
+            $ref: '#/definitions/RecordInvalidError'
+
+  /upload_files/upload_links:
+    get:
+      tags:
+        - upload_files
+      summary: Get upload file info
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: number
+          in: query
+          type: integer
+          description: number of file to upload
+          required: true
+      responses:
+        '201':
+          description: ok
+          schema:
+            $ref: '#/definitions/GetFileUploadLinks'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+
+  /student/notifications/badge_my_space:
+    get:
+      tags:
+      - student
+      summary: Get notification badge in my space
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ok
+          schema:
+            $ref: '#/definitions/BadgeNotificationMySpace'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+
+  /users/{id}:
+    get:
+      tags:
+        - users
+      summary: Get user detail
+      description: Get user detail
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+
+  /student/activity_records:
+    get:
+      tags:
+        - student
+      summary: list activity of student
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: page
+          in: query
+          description: Page number (For pagination)
+          type: integer
+        - name: per_page
+          in: query
+          description: Item's quantity in a page (For pagination)
+          type: integer
+        - name: category
+          in: query
+          description: used for filter by category
+          type: integer
+        - name: album_id
+          in: query
+          type: integer
+          description: id of the album
+          required: false
+        - name: not_album_id
+          in: query
+          type: integer
+          description: id of the album that activity_records does not belong to that album
+          required: false
+        - name: keyword
+          in: query
+          type: string
+          description: keyword to search activity_record
+          required: false
+        - name: mark_ids
+          in: query
+          type: array
+          items:
+            type: integer
+          description: list marks to filter activity_records
+          required: false
+      responses:
+        '200':
+          description: ok
+          schema:
+            $ref: '#/definitions/ActivityRecordsWithPage'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+
+  /student/activity_records/search:
+    get:
+      tags:
+        - student
+      summary: student search activities
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          type: integer
+        - name: per_page
+          in: query
+          description: Item's quantity in a page
+          type: integer
+        - name: category
+          in: query
+          description: used for filter by category
+          type: integer
+        - name: keyword
+          in: query
+          type: string
+          description: keyword to search activity_record
+          required: false
+        - name: mark_ids
+          in: query
+          type: array
+          items:
+            type: integer
+          description: list marks to filter activity_records
+          required: false
+      responses:
+        '200':
+          description: ok
+          schema:
+            $ref: '#/definitions/StudentSearchActivityRecords'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+
+  /student/spaces/{space_id}/works/{work_id}:
+    get:
+      tags:
+        - work
+      summary: Show work detail student
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: space_id
+          in: path
+          type: integer
+          description: id of space
+          required: true
+        - name: work_id
+          in: path
+          type: integer
+          description: id of work
+          required: true
+        - name: is_show_answer
+          in: query
+          description: show answer work
+          type: boolean
+      responses:
+        '201':
+          description: ok
+          schema:
+            $ref: '#/definitions/StudentWorkDetail'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+
+  /student/spaces/{space_id}/works/{work_id}/documents:
+    post:
+      tags:
+        - work
+      summary: Create answer for work
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: space_id
+          in: path
+          type: integer
+          description: id of space
+          required: true
+        - name: work_id
+          in: path
+          type: integer
+          description: id of work
+          required: true
+        - name: document_params
+          in: body
+          description: Answer params
+          required: true
+          schema:
+          $ref: '#/definitions/AnswerParams'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Document'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+        '404':
+          description: Record not found
+          schema:
+            $ref: '#/definitions/RecordNotFoundError'
+        '422':
+          description: Create error!
+          schema:
+            $ref: '#/definitions/RecordInvalidError'
+
+  /marks:
+    get:
+      tags:
+        - marks
+      summary: Return all marks
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ok
+          schema:
+            $ref: '#/definitions/Marks'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+
+  /student/works:
+    get:
+      tags:
+        - student
+      summary: Return works not answered
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: keyword
+          in: query
+          type: string
+          description: search work by title of work or title of album
+        - name: album_id
+          in: query
+          type: integer
+          description: filter work by album
+        - name: page
+          in: query
+          description: Page number (For pagination)
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/StudentWorkNotAnswered'
+        '401':
+          description: Unauthenticated Error
+          schema:
+            $ref: '#/definitions/UnauthenticatedError'
+        '403':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/UnauthorizedError'
+
+definitions:
+  # parameters
+  WorkParams:
+    type: object
+    properties:
+      work:
+        type: object
+        properties:
+          title:
+            type: string
+            example: 'do exercies'
+          template_title:
+            type: string
+          work_type:
+            type: integer
+          group_question_title:
+            type: string
+          template_content:
+            type: string
+          upload_files_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/FileParams'
+          comment:
+            type: string
+            example: 'must do exercies'
+          category_id:
+            type: number
+          work_questions_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/WorkQuestionParams'
+
+  WorkQuestionParams:
+    type: object
+    properties:
+      id:
+        type: integer
+      content:
+        type: string
+      order:
+        type: integer
+        example: 1
+      image_attributes:
+        type: array
+        items:
+          $ref: '#/definitions/ImageParams'
+      _destroy:
+        type: boolean
+
+  ActivityRecordParams:
+    type: object
+    properties:
+      activity_record_id:
+        type: integer
+
+  DocumentParamsForCreate:
+    type: object
+    properties:
+      document:
+        type: object
+        properties:
+          title:
+            type: string
+          content:
+            type: string
+          published:
+            type: boolean
+          category_id:
+            type: integer
+          album_id:
+            type: integer
+          activity_records_marks_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/MarkParams'
+          upload_files_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/FileParams'
+
+  DocumentParamsForUpdate:
+    type: object
+    properties:
+      document:
+        type: object
+        properties:
+          title:
+            type: string
+          content:
+            type: string
+          category_id:
+            type: integer
+          activity_records_marks_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/MarkParams'
+          upload_files_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/FileParams'
+          document_answers_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/DocumentAnswersForUpdate'
+          albums_activity_records_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/AlbumsActivityRecord'
+
+  MarkParams:
+    type: object
+    properties:
+      id:
+        type: integer
+      mark_id:
+        type: integer
+      _destroy:
+        type: boolean
+
+  AnswerParams:
+    type: object
+    properties:
+      document:
+        type: object
+        properties:
+          title:
+            type: string
+          content:
+            type: string
+          published:
+            type: boolean
+          upload_files_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/FileParams'
+          document_answers_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/DocumentAnswersForCreate'
+          activity_records_marks_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/MarkParams'
+
+  FileParams:
+    type: object
+    properties:
+      id:
+        type: integer
+      uuid:
+        type: string
+      file_name:
+        type: string
+        example: 'upload_file'
+      _destroy:
+        type: boolean
+      file_extension:
+        type: string
+        example: 'pdf'
+
+  ActivityRecordParamsUpdate:
+    type: object
+    properties:
+      albums_activity_records_attributes:
+        type: array
+        items:
+          $ref: '#/definitions/AlbumsActivityRecord'
+
+  DocumentAnswersForCreate:
+    type: object
+    properties:
+      content:
+        type: string
+      work_question_id:
+        type: integer
+      upload_files_attributes:
+        type: array
+        items:
+          $ref: '#/definitions/FileParams'
+
+  DocumentAnswersForResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+      content:
+        type: string
+      work_question_id:
+        type: integer
+      work_questions:
+        type: array
+        items:
+          $ref: '#/definitions/WorkQuestion'
+
+  DocumentAnswersForUpdate:
+    type: object
+    properties:
+      id:
+        type: integer
+      content:
+        type: string
+      work_question_id:
+        type: integer
+      _destroy:
+        type: boolean
+      upload_files_attributes:
+        type: array
+        items:
+          $ref: '#/definitions/FileParams'
+
+  GetFileUploadLinks:
+    type: object
+    properties:
+      upload_links:
+        type: array
+        items:
+          $ref: '#/definitions/FileUploadLink'
+
+  #File upload link
+  FileUploadLink:
+    type: object
+    properties:
+      uuid:
+        type: string
+      endpoint_url:
+        type: string
+      params:
+        $ref: '#/definitions/ExampleFileUploadParams'
+
+  # Document definitions
+  DocumentCore:
+    type: object
+    properties:
+      id:
+        type: integer
+      user:
+        $ref: '#/definitions/User'
+      create_user_id:
+        type: integer
+      update_user_id:
+        type: integer
+      title:
+        type: string
+      upload_files:
+        type: array
+        items: {}
+        example: []
+      document_answers:
+        type: array
+        items:
+          $ref: '#/definitions/DocumentAnswersForResponse'
+      content:
+        type: string
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+
+  DocumentWithNoFiles:
+    type: object
+    allOf:
+      - $ref: '#/definitions/DocumentCore'
+      - type: object
+        properties:
+          upload_files:
+            type: array
+            items: {}
+            example: []
+
+  Document:
+    type: object
+    allOf:
+      - $ref: '#/definitions/DocumentCore'
+      - type: object
+        properties:
+          upload_files:
+            type: array
+            items:
+              $ref: '#/definitions/FileParams'
+          activity_record_id:
+            type: integer
+
+  # User definitions
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+        example: '倉石 花子'
+      userTypeId:
+        type: integer
+        example: 1
+      avatar:
+        type: string
+      className:
+        type: string
+        example: 'Class name'
+    xml:
+      name: User
+
+  DeliveredWorkStudent:
+    type: object
+    allOf:
+      - $ref: '#/definitions/User'
+      - type: object
+        properties:
+          answer_id:
+            type: integer
+          answer_title:
+            type: string
+          assessments_count:
+            type: integer
+          answer_date:
+            type: string
+            format: date-time
+            example: '2017/07/11 12:00:00'
+
+  DeliveredStudentResponse:
+    type: object
+    properties:
+      delivered_students:
+        type: array
+        items:
+          $ref: '#/definitions/DeliveredWorkStudent'
+      pages:
+        $ref: '#/definitions/Pages'
+  NotAnsweredStudentsResponse:
+    type: object
+    properties:
+      not_answered_students:
+        type: array
+        items:
+          $ref: '#/definitions/User'
+      next_url:
+        type: string
+        example: >-
+          http://localhost:3000/api/v1/teacher/spaces/1/works/1/not_answered_students?page=2&per_page=20
+
+  # Activity Record definitions
+  ActivityRecordCore:
+    type: object
+    properties:
+      id:
+        type: integer
+      category_id:
+        type: integer
+      space_id:
+        type: integer
+      record_type:
+        type: string
+        example: 'Document'
+      published:
+        type: boolean
+        example: true
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      assessments_count:
+        type: integer
+      self_assessments_count:
+        type: integer
+      teacher_assessments_count:
+        type: integer
+      cross_assessments_count:
+        type: integer
+      create_user_id:
+        type: integer
+      update_user_id:
+        type: integer
+      work_id:
+        type: integer
+        # nullable: true
+      marks:
+        type: array
+        items:
+          $ref: '#/definitions/Mark'
+
+  # AnalyticActivityView
+  AnalyticActivityView:
+    type: object
+    allOf:
+    - $ref: '#/definitions/User'
+    - type: object
+      properties:
+        own_view_count:
+          type: integer
+        other_view_count:
+          type: integer
+
+  # Activity record with self assessment
+  ActivityRecordWithAssessments:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ActivityRecordCore'
+      - type: object
+        properties:
+          user:
+            $ref: '#/definitions/User'
+          record:
+            $ref: '#/definitions/DocumentCore'
+          self_assessments:
+            type: array
+            items:
+              $ref: '#/definitions/SelfAssessment'
+          has_unread_teacher_self_assessment:
+            type: boolean
+          cross_assessments:
+            type: array
+            items:
+              $ref: '#/definitions/CrossAssessment'
+          has_unread_cross_assessment:
+            type: boolean
+          albums:
+            type: array
+            items:
+              $ref: '#/definitions/AlbumCore'
+          public_spaces:
+            type: array
+            items:
+              $ref: '#/definitions/Space'
+          pickups:
+            type: array
+            items:
+              $ref: '#/definitions/PickUpWithSpace'
+          can_add_pickup:
+            type: boolean
+
+  #Activity record with title
+  ActivityRecordWithTitle:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ActivityRecordCore'
+      - type: object
+        properties:
+          title:
+            type: string
+            example: "Title"
+
+  #Activity record for edit answer
+  ActivityRecordEdit:
+    type: object
+    properties:
+      id:
+        type: integer
+      category_id:
+        type: integer
+      space_id:
+        type: integer
+      record_type:
+        type: string
+        example: 'Document'
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      assessments_count:
+        type: integer
+      self_assessments_count:
+        type: integer
+      teacher_assessments_count:
+        type: integer
+      create_user_id:
+        type: integer
+      update_user_id:
+        type: integer
+      work_id:
+        type: integer
+        # nullable: true
+      activity_records_mark:
+        type: array
+        items:
+          $ref: '#/definitions/ActivityRecordsMark'
+      is_answer:
+        type: boolean
+        example: 'true'
+      space_name:
+        type: string
+      record:
+        $ref: '#/definitions/Document'
+      work:
+        $ref: '#/definitions/WorkDetail'
+      albums_activity_records:
+        type: array
+        items:
+          $ref: '#/definitions/AlbumsActivityRecord'
+
+  ActivityRecordsMark:
+    type: object
+    properties:
+      id:
+        type: integer
+      mark_id:
+        type: integer
+
+  # Mark definition
+  Mark:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      icon:
+        type: string
+
+  Marks:
+    type: object
+    properties:
+      marks:
+        type: array
+        items:
+          $ref: '#/definitions/Mark'
+
+  # Self Assessment definition
+  SelfAssessment:
+    type: object
+    properties:
+      id:
+        type: integer
+      content:
+        type: string
+      create_user_id:
+        type: integer
+      activity_record_id:
+        type: integer
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+
+  # Teacher Assessment definition
+  TeacherAssessment:
+    type: object
+    properties:
+      id:
+        type: integer
+      content:
+        type: string
+      is_read:
+        type: boolean
+      create_user_id:
+        type: integer
+      activity_record_id:
+        type: integer
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+
+  # Self assessment params
+  SelfAssessmentParams:
+    type: object
+    properties:
+      self_assessment:
+        type: object
+        properties:
+          activity_record_id:
+            type: integer
+          content:
+            type: string
+            example: 'Sample text'
+
+  # Teacher assessment params
+  TeacherAssessmentParams:
+    type: object
+    properties:
+      teacher_assessment:
+        type: object
+        properties:
+          activity_record_id:
+            type: integer
+          content:
+            type: string
+            example: 'Sample text'
+
+  # Teacher assessment params for update
+  TeacherAssessmentParamsUpdate:
+    type: object
+    properties:
+      teacher_assessment:
+        type: object
+        properties:
+          content:
+            type: string
+            example: 'Sample text'
+
+  # File definitions
+  UploadFile:
+    type: object
+    properties:
+      id:
+        type: integer
+      uuid:
+        type: string
+      create_user_id:
+        type: integer
+      update_user_id:
+        type: integer
+      file_name:
+        type: string
+      file_extension:
+        type: string
+        example: 'pdf'
+      title:
+        type: string
+      content:
+        type: string
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/08/03 12:00:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2017/08/03 12:00:00'
+
+  # Example params fileupload link
+  ExampleFileUploadParams:
+    type: object
+    example: {
+      "key":"1020125/4820134/18a201d8272028b3",
+      "policy":"eNF201To1OFoiLlIjoiM201UMDMzOTU4WiJ9XX0=",
+      "x-amz-credential":"AgKIfeMPOQh/202011214/het-1/s3/485834",
+      "x-amz-algorithm":"abAgKIfeMPOQh0598d",
+      "x-amz-date":"485834fwgggrb020171214598d",
+      "x-amz-signature":"485201834"
+    }
+
+  # Space Detail for student definitions
+  StudentSpaceDetail:
+    properties:
+      space:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+            example: 'Spacespeaker'
+          users_count:
+            type: integer
+            example: 10
+          color_code:
+            type: string
+            example: '#fff'
+          create_user_id:
+            type: integer
+            example: 1
+          update_user_id:
+            type: integer
+          created_at:
+            type: string
+            format: date-time
+            example: '2017/07/11 12:00:00'
+          updated_at:
+            type: string
+            format: date-time
+            example: '2017/07/11 12:00:00'
+      works:
+        type: array
+        items:
+          $ref: '#/definitions/WorkList'
+      pages:
+        $ref: '#/definitions/Pages'
+
+  #ReadAssessmentParams
+  ReadAssessmentParams:
+    type: object
+    properties:
+      type:
+        type: string
+        example: cross_assessment | teacher_assessment
+
+  # Student list in space
+  StudentList:
+    type: object
+    properties:
+      students:
+        type: array
+        items:
+          $ref: '#/definitions/StudentOfSpace'
+      space:
+        $ref: '#/definitions/Space'
+      pages:
+        $ref: '#/definitions/Pages'
+
+  ItemAlbumWithCreateUser:
+    type: object
+    allOf:
+      - $ref: '#/definitions/Album'
+      - type: object
+        properties:
+          user:
+            type: object
+            $ref: '#/definitions/User'
+
+
+  # Work definition
+  WorkCore:
+    type: object
+    properties:
+      id:
+        type: integer
+      create_user_id:
+        type: integer
+      update_user_id:
+        type: integer
+      title:
+        type: string
+      comment:
+        type: string
+      category_id:
+        type: integer
+      template_title:
+        type: string
+      template_content:
+        type: string
+      mutual_assessment:
+        type: boolean
+      deliveries_count:
+        type: integer
+      answers_count:
+        type: integer
+      group_question_title:
+        type: string
+      work_type:
+        type: integer
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+  CreateWorkParams:
+    type: object
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+      comment:
+        type: string
+      category_id:
+        type: integer
+      template_title:
+        type: string
+      template_content:
+        type: string
+      create_user_id:
+        type: integer
+      group_question_title:
+        type: string
+      work_type:
+        type: integer
+      upload_files:
+        type: array
+        items:
+          $ref: '#/definitions/FileParams'
+      album_id:
+        type: integer
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      deliveries_count:
+        type: integer
+      answers_count:
+        type: integer
+  WorkList:
+    type: object
+    allOf:
+      - $ref: '#/definitions/WorkCore'
+      - type: object
+        properties:
+          is_read:
+            type: boolean
+          answer_state:
+            type: string
+            example: 'drafted'
+          album_title:
+            type: string
+          space:
+            $ref: '#/definitions/Space'
+
+  WorkDetail:
+    type: object
+    allOf:
+      - $ref: '#/definitions/WorkCore'
+      - type: object
+        properties:
+          can_destroy:
+            type: boolean
+          create_user:
+            $ref: '#/definitions/User'
+          upload_files:
+            $ref: '#/definitions/UploadFile'
+          work_questions:
+            type: array
+            items:
+              $ref: '#/definitions/WorkQuestion'
+
+  WorkWithCreateUserAndAlbumTitle:
+    type: object
+    allOf:
+      - $ref: '#/definitions/WorkCore'
+      - type: object
+        properties:
+          create_user:
+            $ref: '#/definitions/User'
+          album_title:
+            type: string
+
+  StudentWorkDetail:
+    type: object
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+      comment:
+        type: string
+      category_id:
+        type: integer
+      upload_files:
+        type: array
+        items:
+          $ref: '#/definitions/FileParams'
+      template_title:
+        type: string
+      template_content:
+        type: string
+      create_user:
+        $ref: '#/definitions/User'
+      activity_record:
+        $ref: '#/definitions/ActivityRecordWithTitle'
+      work_questions:
+        type: array
+        items:
+          $ref: '#/definitions/WorkQuestion'
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+
+  BadgeNotificationMySpace:
+    type: object
+    properties:
+      albums:
+        type: boolean
+      work:
+        type: boolean
+      unread_assessments_count:
+        type: integer
+
+  # Get joined space for student
+  GetSpaceListForStudent:
+    type: object
+    properties:
+      spaces:
+        type: array
+        items:
+          $ref: '#/definitions/Space'
+      pages:
+        $ref: '#/definitions/Pages'
+
+  # Get activity_records list of a student
+  GetActivityRecordsOfStudent:
+    type: object
+    properties:
+      activity_records:
+        type: array
+        items:
+          $ref: '#/definitions/ActivityRecordCore'
+      pages:
+        $ref: '#/definitions/Pages'
+
+  # Page definition
+  Pages:
+    type: object
+    properties:
+      per_page:
+        type: integer
+      current_page:
+        type: integer
+      next_page:
+        type: integer
+      prev_page:
+        type: integer
+      total_pages:
+        type: integer
+      total_count:
+        type: integer
+
+  ClassStudentDetailObject:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      user_type:
+        type: string
+      avatar:
+        type: string
+      attendance_number:
+        type: integer
+      number_activities:
+        type: integer
+      last_activity_time:
+        type: string
+        format: date-time
+        example: '2018/04/18 12:00'
+      last_activity_category:
+        type: string
+      last_activity_title:
+        type: string
+  ClassesListResponse:
+    type: object
+    properties:
+      school:
+        $ref: '#/definitions/SchoolObject'
+      grades:
+        type: array
+        items:
+          $ref: '#/definitions/GradeObject'
+  StudentsListInClassResponse:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ClassObject'
+      - type: object
+        properties:
+          school:
+            $ref: '#/definitions/SchoolObject'
+          students:
+            type: array
+            items:
+              $ref: '#/definitions/ClassStudentDetailObject'
+          pages:
+            $ref: '#/definitions/Pages'
+
+  # Error definitions
+  UnauthenticatedError:
+    type: object
+    properties:
+      error_code:
+        type: integer
+        example: 600
+      message:
+        type: string
+        example: Unauthenticated!
+  UnauthorizedError:
+    type: object
+    properties:
+      error_code:
+        type: integer
+        example: 601
+      message:
+        type: string
+        example: Unauthorized!
+  RecordInvalidError:
+    type: object
+    properties:
+      error_code:
+        type: integer
+        example: 603
+      message:
+        type: string
+        example: Validation failed
+  RecordNotFoundError:
+    type: object
+    properties:
+      error_code:
+        type: integer
+        example: 404
+      message:
+        type: string
+        example: Can't find record with id = 100
+  UnprocessableEntityError:
+    type: object
+    properties:
+      error_code:
+        type: integer
+        example: 422
+      message:
+        type: string
+        example: Unprocess entity error
+  PlatformError:
+    type: object
+    properties:
+      error_code:
+        type: integer
+        example: 604
+      message:
+        type: string
+        example: "Error message returned from platform message's code"
+
+  # ActivityRecord for student definitions
+  ActivityRecordWithCategoryAndTitle:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ActivityRecordCore'
+      - type: object
+        properties:
+          category_name:
+            type: string
+            example: "category 1 (category 1)"
+          title:
+            type: string
+            example: "Title"
+          has_unread_assessment:
+            type: boolean
+          has_active_pickup:
+            type: boolean
+
+  # Student activity_record list definition
+  ActivityRecordsWithPage:
+    type: object
+    properties:
+      activity_records:
+        type: array
+        items:
+          $ref: '#/definitions/ActivityRecordWithCategoryAndTitle'
+      pages:
+        $ref: '#/definitions/Pages'
+
+  # Student search activity_records list definition
+  StudentSearchActivityRecords:
+    type: object
+    properties:
+      activity_records:
+        type: array
+        items:
+          $ref: '#/definitions/ActivityRecordWithCategoryAndTitle'
+      next_url:
+        type: string
+        example: 'http://localhost:3000/api/v1/student/activity_records/search?keyword=search&page=2'
+      total_records:
+        type: integer
+
+  # Work template params
+  WorkTemplateParams:
+    type: object
+    properties:
+      work_template:
+        type: object
+        properties:
+          title:
+            type: string
+          work_template_questions_attributes:
+            type: array
+            items:
+              $ref: '#/definitions/WorkTemplateQuestionParams'
+
+  WorkTemplateQuestionParams:
+    type: object
+    properties:
+      id:
+        type: integer
+      content:
+        type: string
+      order:
+        type: integer
+        example: 1
+      image_attributes:
+        type: array
+        items:
+          $ref: '#/definitions/ImageParams'
+      _destroy:
+        type: boolean
+
+  ImageParams:
+    type: object
+    properties:
+      id:
+        type: integer
+      uuid:
+        type: string
+      file_name:
+        type: string
+      file_extension:
+        type: string
+        example: 'jpg'
+      thumbnail:
+        type: string
+      _destroy:
+        type: boolean
+
+  # Work Template definitions
+  WorkTemplates:
+    type: object
+    properties:
+      work_templates:
+        type: array
+        items:
+          $ref: '#/definitions/WorkTemplate'
+      next_url:
+        type: string
+        example: >-
+          http://localhost:3000/api/v1/teacher/work_templates?page=2&per_page=20
+
+  WorkTemplate:
+    type: object
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+      create_user_id:
+        type: integer
+      work_template_questions:
+        type: array
+        items:
+          $ref: '#/definitions/WorkQuestion'
+      created_at:
+        type: string
+        format: date-time
+        example: '2018/08/08 12:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2018/08/08 12:00'
+
+  WorkQuestion:
+    type: object
+    properties:
+      id:
+        type: integer
+      content:
+        type: string
+      order:
+        type: integer
+      image:
+        type: array
+        items:
+          $ref: '#/definitions/Image'
+      created_at:
+        type: string
+        format: date-time
+        example: '2018/08/08 12:00'
+
+  Image:
+    type: object
+    properties:
+      id:
+        type: integer
+      uuid:
+        type: string
+      create_user_id:
+        type: integer
+      file_name:
+        type: string
+      file_extension:
+        type: string
+        example: 'jpg'
+      thumbnail:
+        type: string
+        example: 'http://image.soure.com/123456'
+      created_at:
+        type: string
+        format: date-time
+        example: '2018/08/21 12:00:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2018/08/21 12:00:00'
+
+  StudentWorkNotAnswered:
+    properties:
+      works:
+        type: array
+        items:
+          $ref: '#/definitions/WorkList'
+      pages:
+        $ref: '#/definitions/Pages'
+
+  ActivityRecordUpdate:
+    type: object
+    properties:
+      id:
+        type: integer
+      record_type:
+        type: string
+        example: 'Document'
+      created_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      updated_at:
+        type: string
+        format: date-time
+        example: '2017/07/11 12:00:00'
+      create_user_id:
+        type: integer
+      update_user_id:
+        type: integer
+      record:
+        $ref: '#/definitions/Document'
+      albums_activity_records:
+        type: array
+        items:
+          $ref: '#/definitions/AlbumsActivityRecord'
